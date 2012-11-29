@@ -1467,6 +1467,91 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 			target="_blank"><?php echo $this->applicant->additional_info_filename; ?></a>
 			<?php endif; ?> <?php endif; ?></td>
 	</tr>
+	
+	<!--
+	Roberto 2012-11-28 Cambios solicitados por Patricia para PhD LaCaixa 2012
+	-->
+	
+	<tr class="sectiontableentry1">
+		<td width="17%"><?php echo JText::_('DOCS_CHECKED'); ?>:</td>		
+		<td>
+		<?php if ($this->rights == 'write'): ?>
+			<?php echo $this->lists['docs_checked']; ?>
+		<?php else: ?>
+			<?php echo ($this->applicant->docs_checked) ? JText::_('YES'): JText::_('NO'); ?>
+		<?php endif; ?>
+		</td>
+	</tr>
+	<tr class="sectiontableentry1">
+		<td width="15%" valign="top"><?php echo JText::_('MISSING_DOCS'); ?>:</td>
+		<td>
+		<?php if ($this->rights == 'write'): ?>
+			<textarea name="missing_docs" cols="50" rows="4"><?php echo ($this->applicant->missing_docs) ?></textarea>
+		<?php else: ?>
+			<?php echo ($this->applicant->missing_docs); ?>
+		<?php endif; ?>
+		</td>
+	</tr>
+	<tr class="sectiontableentry1">
+		<td width="15%" valign="top"><?php echo JText::_('ACADEMIC_COMMENTS'); ?>:</td>
+		<td>
+		<?php if ($this->rights == 'write'): ?>
+			<textarea name="academic_comments" cols="50" rows="4"><?php echo ($this->applicant->academic_comments) ?></textarea>
+		<?php else: ?>
+			<?php echo ($this->applicant->academic_comments); ?>
+		<?php endif; ?>
+		</td>
+	</tr>
+	<tr class="sectiontableentry1">
+		<td width="17%"><?php echo JText::_('APPLICANT_CONTACTED'); ?>:</td>		
+		<td>
+		<?php if ($this->rights == 'write'): ?>
+			<?php echo $this->lists['applicant_contacted']; ?>
+		<?php else: ?>
+			<?php echo ($this->applicant->applicant_contacted) ? JText::_('YES'): JText::_('NO'); ?>
+		<?php endif; ?>
+		</td>
+	</tr>
+	<tr class="sectiontableentry1">
+		<td><?php echo JText::_('APPLICANT_CONTACTED_DATE'); ?>:</td>
+		<td>
+		<?php if ($this->rights == 'write'): ?>
+			<?php JHTML::_('behavior.calendar'); ?>
+			<input type="text" name="applicant_contacted_date" id="applicant_contacted_date"
+				value="<?php echo $this->applicant->applicant_contacted_date; ?>" size="10"
+				maxlength="10" /> <img class="calendar"
+				src="./templates/system/images/calendar.png" alt="calendar"
+				onclick="return showCalendar('applicant_contacted_date', '%Y-%m-%d');" />
+		<?php else: ?>
+			<?php echo $this->applicant->applicant_contacted_date; ?>
+		<?php endif; ?>
+		</td>
+	</tr>
+	<tr class="sectiontableentry1">
+		<td width="17%"><?php echo JText::_('INDIAN'); ?>:</td>		
+		<td>
+			<?php if ($this->rights == 'write'): ?>
+				<?php echo $this->lists['indian']; ?>
+			<?php else: ?>
+				<?php echo ($this->applicant->indian) ? JText::_('YES'): JText::_('NO'); ?>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr class="sectiontableentry1">
+		<td width="15%" valign="top"><?php echo JText::_('INDIAN_INFO'); ?>:</td>
+		<td>
+		<?php if ($this->rights == 'write'): ?>
+			<textarea name="indian_info" cols="50" rows="4"><?php echo ($this->applicant->indian_info) ?></textarea>
+		<?php else: ?>
+			<?php echo ($this->applicant->indian_info); ?>
+		<?php endif; ?>
+		</td>
+	</tr>
+	
+	<!--
+	Roberto 2012-11-28 Fin de cambios
+	-->
+	
 	<?php if ($this->iamadministrator && $this->params->get('phdConfig_Application') == 2 ): ?>
 	<tr class="sectiontableentry1">
 		<td><?php echo JText::_('RESP_COMMITTEE'); ?>:</td>
