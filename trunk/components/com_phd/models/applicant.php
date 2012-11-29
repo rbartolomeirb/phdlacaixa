@@ -357,7 +357,6 @@ class PhdModelApplicant extends JModel
 	 */
 	function savePersonalData($data){
 		//print_r($data);
-		
 		$applicant_id = $this->_store($data, 'personaldata');
 		if ($applicant_id){
 			return $applicant_id;
