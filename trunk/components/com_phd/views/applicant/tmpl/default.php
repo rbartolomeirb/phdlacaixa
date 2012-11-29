@@ -46,10 +46,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 <?php if (!$this->iamgroupleader): //Do not show intro data if i am a Group Leader ?>
 <?php echo JText::_('INTRO_PERSONAL'); ?>
-<br></br>
+<br>
 <?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 <?php endif; ?>
 
 <form action="<?php echo $this->action; ?>" method="post"
@@ -267,10 +267,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 		<?php if (!$this->iamgroupleader): //Do not show intro data if i am a Group Leader ?>
 		<?php echo JText::_('INTRO_ACADEMIC'); ?>
-<br></br>
+<br>
 		<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 		<?php endif; ?>
 
 <!-- Different code if the application is PhD or Postdoc -->
@@ -279,7 +279,16 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 		{
 			?>
 <!-- PhD information -->
-
+			
+	<table width="100%" class="table">
+		<tr class="sectiontableentry1">
+			<td width='200%' ><?php echo JText::_( 'SCIENTIFIC_DISCIPLINE' ); ?>:
+			</td>
+			<td><?php echo ($this->rights == 'write') ? $this->lists['scientificdiscipline'] : $this->applicant->scientific_discipline; ?>
+			</td>
+		</tr>
+	</table>
+<br>
 			<?php if(count($this->applicant->academic_data_academic) > 0): ?>
 <table width='100%' border='0' class="table">
 	<thead>
@@ -306,7 +315,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tr>
 	<?php endforeach; ?>
 </table>
-<br></br>
+<br>
 	<?php endif; ?>
 
 	<?php if (($this->rights == 'write')): ?>
@@ -373,7 +382,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 		</tr>
 	</thead>
 </table>
-<br></br>
+<br>
 			<?php if(count($this->applicant->academic_data_postdoctoral) > 0): ?>
 <table width='100%' border='0' class="table">
 	<thead>
@@ -406,7 +415,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tr>
 	<?php endforeach; ?>
 </table>
-<br></br>
+<br>
 	<?php endif; ?>
 
 	<?php if (($this->rights == 'write')): ?>
@@ -484,7 +493,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tbody>
 </table>
 </form>
-<br></br>
+<br>
 		<?php endif; ?>
 <!-- No write, no input form -->
 
@@ -497,7 +506,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 		</tr>
 	</thead>
 </table>
-<br></br>
+<br>
 		<?php if(count($this->applicant->academic_data_doctoral) > 0): ?>
 <table width='100%' border='0' class="table">
 	<thead>
@@ -534,7 +543,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tr>
 	<?php endforeach; ?>
 </table>
-<br></br>
+<br>
 	<?php endif; ?>
 
 	<?php if (($this->rights == 'write')): ?>
@@ -626,7 +635,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tbody>
 </table>
 </form>
-<br></br>
+<br>
 		<?php endif; ?>
 <!-- No write, no input form -->
 
@@ -639,7 +648,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 		</tr>
 	</thead>
 </table>
-<br></br>
+<br>
 		<?php if(count($this->applicant->academic_data_academic) > 0): ?>
 <table width='100%' border='0' class="table">
 	<thead>
@@ -674,7 +683,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tr>
 	<?php endforeach; ?>
 </table>
-<br></br>
+<br>
 	<?php endif; ?>
 
 	<?php if (($this->rights == 'write')): ?>
@@ -789,10 +798,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 		<?php if (!$this->iamgroupleader): //Do not show intro data if i am a Group Leader ?>
 		<?php echo JText::_('INTRO_FILES'); ?>
-<br></br>
+<br>
 		<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 		<?php endif; ?>
 
 		<?php if(count($this->applicant->files) > 0): ?>
@@ -825,7 +834,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tr>
 	<?php endforeach; ?>
 </table>
-<br></br>
+<br>
 	<?php endif; ?>
 
 	<?php
@@ -896,10 +905,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 	<?php if (!$this->iamgroupleader): //Do not show intro data if i am a Group Leader ?>
 	<?php echo JText::_('INTRO_LETTERS'); ?>
-<br></br>
+<br>
 	<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 	<?php endif; ?>
 
 	<?php if(count($this->applicant->referees) > 0): ?>
@@ -981,7 +990,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tr>
 	<?php endforeach; ?>
 </table>
-<br></br>
+<br>
 	<?php endif; ?>
 
 	<?php if ($this->rights == 'write'): ?>
@@ -1052,10 +1061,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 	<?php if (!$this->iamgroupleader): //Do not show intro data if i am a Group Leader ?>
 	<?php echo JText::_('INTRO_WORK'); ?>
-<br></br>
+<br>
 	<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 	<?php endif; ?>
 
 	<?php if(count($this->applicant->work_experience) > 0): ?>
@@ -1080,7 +1089,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	</tr>
 	<?php endforeach; ?>
 </table>
-<br></br>
+<br>
 	<?php endif; ?>
 
 	<?php if (($this->rights == 'write')): ?>
@@ -1140,10 +1149,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 	if (!$this->iamgroupleader): //Do not show intro data if i am a Group Leader
 	echo JText::_('INTRO_PHDTHESIS'); ?>
-<br></br>
+<br>
 	<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 	<?php endif; ?>
 
 <form action="<?php echo $this->action; ?>" method="post"
@@ -1209,10 +1218,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 	if (!$this->iamgroupleader): //Do not show intro data if i am a Group Leader
 	echo JText::_('INTRO_RESEARCH_EXPERIENCE'); ?>
-<br></br>
+<br>
 	<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 	<?php endif; ?>
 
 <form action="<?php echo $this->action; ?>" method="post"
@@ -1281,10 +1290,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	}
 	endif;
 	?>
-<br></br>
+<br>
 	<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 
 <form action="<?php echo $this->action; ?>" method="post"
 	class="form-validate">
@@ -1427,10 +1436,10 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 
 		<?php if ($this->iamadministrator): ?>
 		<?php echo JText::_('INTRO_ADDITIONAL_INFO'); ?>
-<br></br>
+<br>
 		<?php echo JText::_('COMPULSORY_FIELDS_TEXT'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 		<?php endif; ?>
 
 <form
@@ -1642,8 +1651,8 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 			echo $myTabs->startPanel( JText::_( 'STATUS_TAB' ), 'tab8' );
 
 			echo JText::_('INTRO_STATUS'); ?>
-<br></br>
-<br></br>
+<br>
+<br>
 
 <form action="<?php echo $this->action; ?>" method="post"
 	class="form-validate">
