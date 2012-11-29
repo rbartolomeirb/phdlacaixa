@@ -282,7 +282,7 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 			
 	<table width="100%" class="table">
 		<tr class="sectiontableentry1">
-			<td width='200%' ><?php echo JText::_( 'SCIENTIFIC_DISCIPLINE' ); ?>:
+			<td width='15%' ><?php echo JText::_( 'SCIENTIFIC_DISCIPLINE' ); ?>:
 			</td>
 			<td><?php echo ($this->rights == 'write') ? $this->lists['scientificdiscipline'] : $this->applicant->scientific_discipline; ?>
 			</td>
