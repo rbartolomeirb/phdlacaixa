@@ -121,6 +121,16 @@ class PhdViewApplicant extends JView
 		$wheredidulist = array_merge( $wheredidulist, $db->loadObjectList() );
 		$lists['wheredidu'] = JHTML::_('select.genericlist', $wheredidulist, 'wheredidu_id', $javascript, 'value', 'text', $applicant->wheredidu_id );
 
+		// build list of scientific discipline
+		$query = 'SELECT sd.id AS value, sd.description AS text'
+		. ' FROM `#__phd_scientific_discipline` AS sd'
+		. ' ORDER BY sd.order'
+		;
+		$db->setQuery($query);
+		$scientificdisciplinelist[] = JHTML::_('select.option',  '', JText::_( '- Select One -' ), 'value', 'text');
+		$scientificdisciplinelist = array_merge( $scientificdisciplinelist, $db->loadObjectList() );
+		$lists['scientificdiscipline'] = JHTML::_('select.genericlist', $scientificdisciplinelist, 'scientific_discipline_id', $javascript, 'value', 'text', $applicant->scientific_discipline_id );
+		
 		$lists['other_fellowships'] = JHTML::_('select.booleanlist', 'other_fellowships' , '', $applicant->other_fellowships ,'Yes', 'No');
 
 		$lists['career_breaks'] = JHTML::_('select.booleanlist', 'career_breaks' , '', $applicant->career_breaks ,'Yes', 'No');
