@@ -127,6 +127,12 @@ class PhdViewApplicant extends JView
 
 		$lists['ethical_issue'] = JHTML::_('select.booleanlist', 'ethical_issue' , '', $applicant->ethical_issue ,'Yes', 'No');
 
+		// 2012-11-29 Roberto. Modificaciones
+		$lists['docs_checked'] = JHTML::_('select.booleanlist', 'docs_checked' , '', $applicant->docs_checked ,'Yes', 'No');
+		$lists['applicant_contacted'] = JHTML::_('select.booleanlist', 'applicant_contacted' , '', $applicant->applicant_contacted ,'Yes', 'No');
+		$lists['indian'] = JHTML::_('select.booleanlist', 'indian' , '', $applicant->indian ,'Yes', 'No');
+		// 2012-11-29 Roberto. Fin modificaciones
+		
 		$where_doc = ($params->get('phdConfig_Application') == '2')?' WHERE dt.id != 5':' WHERE dt.id < 5';
 		// build list of doc types
 		$query = 'SELECT dt.id AS value, dt.description AS text'
