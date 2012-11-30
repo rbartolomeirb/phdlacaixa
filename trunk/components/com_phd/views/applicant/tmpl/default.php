@@ -838,9 +838,15 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 	<?php endif; ?>
 
 	<?php
-
-	if (count($this->applicant->files) >= $this->params->get('phdConfig_MaxNumberOfFiles')):
-	echo JText::_('MAX_NUM_FILES_REACHED');
+	/*
+	 * 2012-11-30 Roberto. Contamos los ficheros de la base de detos cada vez
+	 */
+	if (JHTML::_('phdhelper.countFiles', $this->applicant->id) >= $this->params->get('phdConfig_MaxNumberOfFiles')):
+	/*
+	 * 2012-11-30 Roberto. Fin de cambios
+	*/
+	
+		echo JText::_('MAX_NUM_FILES_REACHED');
 
 	elseif ($this->rights == 'write'): ?>
 
@@ -864,13 +870,16 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 		<td><input type='hidden' name='MAX_FILE_SIZE' value='2097152' /> <input
 			type='file' class='inputbox' name='uploaded_file'></td>
 	</tr>
+	<!--
+	2012-11-30 Roberto. Pedido por Patricia. Cambios en la obligatoriedad de los campos.
+	-->
 	<tr class="sectiontableentry1">
-		<td><?php echo JText::_('DESCRIPTION'); ?>: <?php echo ($this->rights == 'read')?"":"<span style='color: red;'>*</span>"; ?>
-		</td>
-		<td><input class="required" type="text" name="description" size="60"
-			maxlength="250" /></td>
+		<td><?php echo JText::_('DESCRIPTION'); ?>:</td>
+		<td><input type="text" name="description" size="60" maxlength="250" /></td>
 	</tr>
-
+	<!-- 
+	Fin de cambios
+	-->
 	<tr class="sectiontableentry1">
 		<td align="left">
 
