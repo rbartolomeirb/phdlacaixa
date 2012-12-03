@@ -91,19 +91,29 @@ class PhdViewApplicants extends JView
 				$submit_date =& JFactory::getDate($row->submit_date);
 				$applicant_contacted_date =& JFactory::getDate($row->applicant_contacted_date);
 				
+				/*
+				 * 2012-12-03. Roberto. Modificado el texto que ponemos en el fichero.
+				 */
 				// reference letters status
 				$query2 = "SELECT filename"
 				. " FROM #__phd_referees"
-				. " WHERE filename IS NOT NULL"
+				//. " WHERE filename IS NOT NULL"
 				. " AND applicant_id = $row->id"
 				;
 				$db->setQuery($query2);
 				$files = $db->loadObjectList();
 				$str_files = '';
 				foreach( $files as $file) {
-					$str_files .= $file->filename . ", ";
+					if ($file->filename == NULL) {
+						$str_files .= "No" . ", ";
+					} else {
+						$str_files .= "Yes" . ", ";
+					}
 				}
 				$str_files = substr($str_files, 0, -2); // remove the last two caracters
+				/*
+				 * 2012-12-03. Roberto. Fin de modificación.
+				 */
 				
 				//programmes of choice
 				$query3 = "SELECT p.description"

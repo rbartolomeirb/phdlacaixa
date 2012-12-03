@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2012-11-29</creationDate>
+	<creationDate>2012-12-03</creationDate>
 	<license>GNU/GPL</license>
-	<version>1.23</version>
-	<description>PhD and Postdoc Programme aplication. Cambios en Additional Info.</description>
+	<version>1.24</version>
+	<description>PhD and Postdoc Programme aplication. Ultimos cambios.</description>
 
 	<!-- installation part -->
 	<install>
