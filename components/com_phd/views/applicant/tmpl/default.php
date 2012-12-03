@@ -232,7 +232,13 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 				target="_blank"><?php echo $this->applicant->career_breaks_filename; ?></a>
 				<?php endif; ?> <?php endif; ?></td>
 		</tr>
-
+		<tr class="sectiontableentry1">
+			<td width='15%' ><?php echo JText::_( 'SCIENTIFIC_DISCIPLINE' ); ?>:
+			</td>
+			<td><?php echo ($this->rights == 'write') ? $this->lists['scientificdiscipline'] : $this->applicant->scientific_discipline; ?>
+			</td>
+		</tr>
+		
 		<?php if (($this->rights == 'write')): ?>
 		<!-- No write, no buttons -->
 		<tr class="sectiontableentry1">
@@ -280,14 +286,6 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 			?>
 <!-- PhD information -->
 			
-	<table width="100%" class="table">
-		<tr class="sectiontableentry1">
-			<td width='15%' ><?php echo JText::_( 'SCIENTIFIC_DISCIPLINE' ); ?>:
-			</td>
-			<td><?php echo ($this->rights == 'write') ? $this->lists['scientificdiscipline'] : $this->applicant->scientific_discipline; ?>
-			</td>
-		</tr>
-	</table>
 <br>
 			<?php if(count($this->applicant->academic_data_academic) > 0): ?>
 <table width='100%' border='0' class="table">

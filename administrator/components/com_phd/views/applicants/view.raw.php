@@ -76,12 +76,21 @@ class PhdViewApplicants extends JView
 			$worksheet->write(0, 7, JText::_( 'Recommendation letters' ));
 			$worksheet->write(0, 8, JText::_( 'Programmes of choice' ));
 			$worksheet->write(0, 9, JText::_( 'Submit date' ));
-			
+			$worksheet->write(0, 10, JText::_( 'Docs checked?' ));
+			$worksheet->write(0, 11, JText::_( 'Missing docs' ));
+			$worksheet->write(0, 12, JText::_( 'Academic comments' ));
+			$worksheet->write(0, 13, JText::_( 'Applicant contacted?' ));
+			$worksheet->write(0, 14, JText::_( 'Applicant contacted date' ));
+			$worksheet->write(0, 15, JText::_( 'Indian?' ));
+			$worksheet->write(0, 16, JText::_( 'Indian info' ));
+			$worksheet->write(0, 17, JText::_( 'Scientific discipline' ));
+				
 			$i = 2; // line index
 			foreach( $rows as $row )
 			{
 				$submit_date =& JFactory::getDate($row->submit_date);
-								
+				$applicant_contacted_date =& JFactory::getDate($row->applicant_contacted_date);
+				
 				// reference letters status
 				$query2 = "SELECT filename"
 				. " FROM #__phd_referees"
@@ -124,6 +133,14 @@ class PhdViewApplicants extends JView
 				$worksheet->write( $i, 7, $str_files );
 				$worksheet->write( $i, 8, $str_pro );
 				$worksheet->write( $i, 9, $submit_date->toFormat('%d/%m/%Y') );
+				$worksheet->write( $i, 10, (($row->docs_checked)? 'Yes' : 'No' ));
+				$worksheet->write( $i, 11, $row->missing_docs );
+				$worksheet->write( $i, 12, $row->academic_comments );
+				$worksheet->write( $i, 13, (($row->applicant_contacted)? 'Yes' : 'No' ));
+				$worksheet->write( $i, 14, $applicant_contacted_date->toFormat('%d/%m/%Y') );
+				$worksheet->write( $i, 15, (($row->indian)? 'Yes' : 'No' ));
+				$worksheet->write( $i, 16, $row->indian_info );
+				$worksheet->write( $i, 17, $row->scientific_discipline );
 				
 				$i++;				
 			}
