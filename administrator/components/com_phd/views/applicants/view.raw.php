@@ -97,8 +97,7 @@ class PhdViewApplicants extends JView
 				// reference letters status
 				$query2 = "SELECT filename"
 				. " FROM #__phd_referees"
-				//. " WHERE filename IS NOT NULL"
-				. " AND applicant_id = $row->id"
+				. " WHERE applicant_id = $row->id"
 				;
 				$db->setQuery($query2);
 				$files = $db->loadObjectList();
