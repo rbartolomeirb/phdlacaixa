@@ -1458,12 +1458,6 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 			<th colspan='2' class="white"><?php echo JText::_('INFO_TITLE'); ?></th>
 		</tr>
 	</thead>
-	<tr class="sectiontableentry1">
-		<td><?php if ($this->rights == 'write'): ?> <textarea
-			name="additional_info" cols="50" rows="4"><?php echo $this->applicant->additional_info; ?></textarea>
-			<?php else: ?> <?php echo $this->applicant->additional_info; ?> <?php endif; ?>
-		</td>
-	</tr>
 </table>
 <!-- The table format is different so we do a new one -->
 <table width="100%" class="table">
@@ -1561,6 +1555,14 @@ echo $myTabs->startPanel( JText::_( 'PERSONAL_DATA_TAB' ), 'tab1' );
 		<?php else: ?>
 			<?php echo ($this->applicant->indian_info); ?>
 		<?php endif; ?>
+		</td>
+	</tr>
+	<tr class="sectiontableentry1">
+		<td width="15%" valign="top"><?php echo JText::_('OTHER_COMMENTS'); ?>:</td>
+		<td>
+			<?php if ($this->rights == 'write'): ?> <textarea
+			name="additional_info" cols="50" rows="4"><?php echo $this->applicant->additional_info; ?></textarea>
+			<?php else: ?> <?php echo $this->applicant->additional_info; ?> <?php endif; ?>
 		</td>
 	</tr>
 	
