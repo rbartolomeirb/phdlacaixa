@@ -873,12 +873,16 @@ class PhdControllerApplicant extends JController
 			return false;
 		}
 
+		/* Roberto 2012-12-11 No check
+		 * Cambio pedido por Patricia
 		if (!JHTML::_('phdhelper.eligibilityFormExists',$applicant_id)){
 			$mainframe->enqueueMessage( JText::_('NO_ELIGIBILITY_FORM') , 'error' );
 			JRequest::setVar('active_tab', '2' );
 			parent::display();
 			return false;
 		}
+		   Fin de cambios
+		 */
 		
 		/*
 		 // Only check for postdocs
