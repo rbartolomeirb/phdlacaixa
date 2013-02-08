@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2012-12-11</creationDate>
+	<creationDate>2013-02-08</creationDate>
 	<license>GNU/GPL</license>
-	<version>1.25</version>
-	<description>PhD and Postdoc Programme aplication. Ultimos cambios.</description>
+	<version>1.26</version>
+	<description>PhD and Postdoc Programme aplication. Corregido el ticket UJN-697523.</description>
 
 	<!-- installation part -->
 	<install>
