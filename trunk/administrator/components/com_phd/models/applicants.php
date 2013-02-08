@@ -33,6 +33,8 @@ class PhdModelApplicants extends JModel
 	{
 		$query = "SELECT a.id, a.firstname, a.lastname, c.printable_name, a.email, a.birth_date"
 		. ", a.submit_date, w.description AS wheredidu, sd.description AS scientific_discipline"
+		. ", a.docs_checked, a.missing_docs, a.academic_comments, a.applicant_contacted, a.applicant_contacted_date"
+		. ", a.indian, a.indian_info"	
 		. " FROM #__phd_applicants AS a"
 		. " LEFT JOIN #__phd_countries AS c ON c.id = a.country_id"
 		. " LEFT JOIN #__phd_wheredidu AS w ON w.id = a.wheredidu_id"
