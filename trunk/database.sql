@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2012 at 01:56 PM
--- Server version: 5.5.28
--- PHP Version: 5.3.10-1ubuntu3.4
+-- Generation Time: Sep 17, 2013 at 04:46 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.3.10-1ubuntu3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `phd`
+-- Database: `phdlacaixa`
 --
 CREATE DATABASE `phdlacaixa` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `phdlacaixa`;
@@ -239,7 +239,7 @@ INSERT INTO `jos_components` (`id`, `name`, `link`, `menuid`, `parent`, `admin_m
 (88, 'Programmes', '', 0, 41, 'option=com_phd&view=programmes', 'Programmes', 'com_phd', 0, 'js/ThemeOffice/component.png', 0, '', 1),
 (89, 'Excel file', '', 0, 41, 'option=com_phd&view=applicants&format=raw', 'Excel file', 'com_phd', 1, 'js/ThemeOffice/component.png', 0, '', 1),
 (90, 'Version', '', 0, 41, 'option=com_phd&controller=version&task=display', 'Version', 'com_phd', 2, 'js/ThemeOffice/component.png', 0, '', 1),
-(41, 'PhD', 'option=com_phd', 0, 0, 'option=com_phd', 'PhD', 'com_phd', 0, 'js/ThemeOffice/component.png', 0, 'phdConfig_AdminName=Roberto Bartolome\nphdConfig_AdminEmail=roberto.bartolome@irbbarcelona.org\nphdConfig_LiveSite=http://localhost/joomlavui\nphdConfig_ClosingDateTime=2011-12-21 23:59:00\nphdConfig_LimitAge=99\nphdConfig_DocsPath=/docs_phd\nphdConfig_MaxNumberOfFiles=5\nphdConfig_SendBCC=0\nphdConfig_Application=2\nphdConfig_FirstChoice=1\nphdConfig_InvalidEmailProviders=gmail, yahoo, bing\nphdConfig_EmailRefereeSubject=subject de email a referee\nphdConfig_EmailRefereeBody=<html>\\n\\n<head>\\n\\n<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">\\n\\n<title>email</title>\\n\\n</head>\\n\\n\\n\\n<body>\\n\\n<p>Dear #referee#,</p>\\n\\n<p>My name is #name#, and you can upload the file in the following link:</p>\\n\\n<p>#link#</p>\\n\\n<p>Thanks,</p>\\n\\n<p>#name#</p>\\n\\n</body>\\n\\n</html>\\n\nphdConfig_EmailApplicantSubject1=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody1=Dear #name#,\\nThis email is to inform you that IRB Barcelona has not yet received one of the two letters of recommendation requested for application to IRB Barcelona PhD fellowships. We remind you that these letters must be sent directly to us by your referees (either by e-mail to phd@irbbarcelona.org, by airmail or by fax to our contact address) and that the deadline for receipt is 25 January 2009.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject2=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody2=Dear #name#,\\nThank you for your interest in IRB Barcelona and for submitting your application for a PhD position at our institute.\\nThis e-mail is to confirm that your application has been submitted correctly. You will hear back from us once the call closes and the first part of the evaluation process has been completed, around February 2009.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject3=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody3=Dear #name#,\\nThank you, once again, for applying for a Ph.D. grant at IRB Barcelona. The call closed the 25 January 2009 and the first part of the selection process has now been completed.\\nAfter careful evaluation of your considerable merits, I am sorry to inform you that on this occasion you have not been short-listed.\\nI thank you once again for your interest in IRB Barcelona and wish you every success in the future.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject4=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody4=Dear #name#,\\nThank you once again for your recent application for a PhD grant at IRB Barcelona. After careful evaluation of your merits, I am pleased to inform you that you have been short-listed as a potential candidate for one of the grants currently on offer. You will soon receive an official letter with the invitation to visit our Institute on 30 and 31 of March 2009 for interviews.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject5=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody5=Dear #name#,\\nAfter completion of the selection process for PhD fellowships offered by the Institute for Research in Biomedicine (IRB Barcelona), I regret to inform you than on this occasion your application has not been successful. Given the considerable competition for these fellowships and exceptionally high number and quality of applicants, I congratulate you on being short-listed.\\nI thank you once again for your interest in  IRB Barcelona and wish you every success in the future.\\nYours sincerely,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject6=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody6=Dear #name#,\\nAfter completion of the selection process, it is our pleasure to offer you a PhD fellowship at IRB Barcelona. We congratulate you on this achievement. As you know there was considerable competition for these fellowships and the number and quality of applicants were exceptionally high.\\nWe will officially contact you in the near future with more details of our offer.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject7=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody7=Dear #name#,\\nThank you for your interest in IRB Barcelona and for submitting your application for a PhD position at our institute.\\nWe regret to inform you that we have received no recommendations letters. You have therefore been excluded from the selection process.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\n\n', 1);
+(41, 'PhD', 'option=com_phd', 0, 0, 'option=com_phd', 'PhD', 'com_phd', 0, 'js/ThemeOffice/component.png', 0, 'phdConfig_AdminName=Roberto Bartolome\nphdConfig_AdminEmail=roberto.bartolome@irbbarcelona.org\nphdConfig_LiveSite=http://localhost/phdlacaixa\nphdConfig_ClosingDateTime=2012-12-21 23:59:00\nphdConfig_LimitAge=99\nphdConfig_DocsPath=/docs_phd\nphdConfig_MaxNumberOfFiles=5\nphdConfig_SendBCC=0\nphdConfig_Application=1\nphdConfig_FirstChoice=1\nphdConfig_InvalidEmailProviders=gmail, yahoo, bing\nphdConfig_EmailRefereeSubject=subject de email a referee\nphdConfig_EmailRefereeBody=<html>\\n\\n<head>\\n\\n<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">\\n\\n<title>email</title>\\n\\n</head>\\n\\n\\n\\n<body>\\n\\n<p>Dear #referee#,</p>\\n\\n<p>My name is #name#, and you can upload the file in the following link:</p>\\n\\n<p>#link#</p>\\n\\n<p>Thanks,</p>\\n\\n<p>#name#</p>\\n\\n</body>\\n\\n</html>\\n\nphdConfig_EmailApplicantSubject1=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody1=Dear #name#,\\nThis email is to inform you that IRB Barcelona has not yet received one of the two letters of recommendation requested for application to IRB Barcelona PhD fellowships. We remind you that these letters must be sent directly to us by your referees (either by e-mail to phd@irbbarcelona.org, by airmail or by fax to our contact address) and that the deadline for receipt is 25 January 2009.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject2=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody2=Dear #name#,\\nThank you for your interest in IRB Barcelona and for submitting your application for a PhD position at our institute.\\nThis e-mail is to confirm that your application has been submitted correctly. You will hear back from us once the call closes and the first part of the evaluation process has been completed, around February 2009.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject3=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody3=Dear #name#,\\nThank you, once again, for applying for a Ph.D. grant at IRB Barcelona. The call closed the 25 January 2009 and the first part of the selection process has now been completed.\\nAfter careful evaluation of your considerable merits, I am sorry to inform you that on this occasion you have not been short-listed.\\nI thank you once again for your interest in IRB Barcelona and wish you every success in the future.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject4=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody4=Dear #name#,\\nThank you once again for your recent application for a PhD grant at IRB Barcelona. After careful evaluation of your merits, I am pleased to inform you that you have been short-listed as a potential candidate for one of the grants currently on offer. You will soon receive an official letter with the invitation to visit our Institute on 30 and 31 of March 2009 for interviews.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject5=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody5=Dear #name#,\\nAfter completion of the selection process for PhD fellowships offered by the Institute for Research in Biomedicine (IRB Barcelona), I regret to inform you than on this occasion your application has not been successful. Given the considerable competition for these fellowships and exceptionally high number and quality of applicants, I congratulate you on being short-listed.\\nI thank you once again for your interest in  IRB Barcelona and wish you every success in the future.\\nYours sincerely,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject6=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody6=Dear #name#,\\nAfter completion of the selection process, it is our pleasure to offer you a PhD fellowship at IRB Barcelona. We congratulate you on this achievement. As you know there was considerable competition for these fellowships and the number and quality of applicants were exceptionally high.\\nWe will officially contact you in the near future with more details of our offer.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\nphdConfig_EmailApplicantSubject7=News from IRB Barcelona PhD programme\nphdConfig_EmailApplicantBody7=Dear #name#,\\nThank you for your interest in IRB Barcelona and for submitting your application for a PhD position at our institute.\\nWe regret to inform you that we have received no recommendations letters. You have therefore been excluded from the selection process.\\nBest regards,\\nIRB Barcelona PhD Programme\\nThis is an automatically generated message. Please do not answer.\n\n', 1);
 
 -- --------------------------------------------------------
 
@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `jos_contact_details` (
 --
 
 INSERT INTO `jos_contact_details` (`id`, `name`, `alias`, `con_position`, `address`, `suburb`, `state`, `country`, `postcode`, `telephone`, `fax`, `misc`, `image`, `imagepos`, `email_to`, `default_con`, `published`, `checked_out`, `checked_out_time`, `ordering`, `params`, `user_id`, `catid`, `access`, `mobile`, `webpage`) VALUES
-(1, 'Name', 'name', 'Position', 'Street', 'Suburb', 'State', 'Country', 'Zip Code', 'Telephone', 'Fax', 'Miscellanous info', 'powered_by.png', 'top', 'email@email.com', 1, 1, 62, '2010-02-09 16:10:24', 1, 'show_name=1\r\nshow_position=1\r\nshow_email=0\r\nshow_street_address=1\r\nshow_suburb=1\r\nshow_state=1\r\nshow_postcode=1\r\nshow_country=1\r\nshow_telephone=1\r\nshow_mobile=1\r\nshow_fax=1\r\nshow_webpage=1\r\nshow_misc=1\r\nshow_image=1\r\nallow_vcard=0\r\ncontact_icons=0\r\nicon_address=\r\nicon_email=\r\nicon_telephone=\r\nicon_fax=\r\nicon_misc=\r\nshow_email_form=1\r\nemail_description=1\r\nshow_email_copy=1\r\nbanned_email=\r\nbanned_subject=\r\nbanned_text=', 0, 12, 0, '', '');
+(1, 'Name', 'name', 'Position', 'Street', 'Suburb', 'State', 'Country', 'Zip Code', 'Telephone', 'Fax', 'Miscellanous info', 'powered_by.png', 'top', 'email@email.com', 1, 1, 62, '2012-11-29 13:07:00', 1, 'show_name=1\r\nshow_position=1\r\nshow_email=0\r\nshow_street_address=1\r\nshow_suburb=1\r\nshow_state=1\r\nshow_postcode=1\r\nshow_country=1\r\nshow_telephone=1\r\nshow_mobile=1\r\nshow_fax=1\r\nshow_webpage=1\r\nshow_misc=1\r\nshow_image=1\r\nallow_vcard=0\r\ncontact_icons=0\r\nicon_address=\r\nicon_email=\r\nicon_telephone=\r\nicon_fax=\r\nicon_misc=\r\nshow_email_form=1\r\nemail_description=1\r\nshow_email_copy=1\r\nbanned_email=\r\nbanned_subject=\r\nbanned_text=', 0, 12, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -990,18 +990,26 @@ CREATE TABLE IF NOT EXISTS `jos_phd_applicants` (
   `submit_date` datetime DEFAULT NULL,
   `committee_username` varchar(150) DEFAULT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `docs_checked` tinyint(1) NOT NULL,
+  `missing_docs` text NOT NULL,
+  `academic_comments` text NOT NULL,
+  `applicant_contacted` tinyint(1) NOT NULL,
+  `applicant_contacted_date` date NOT NULL,
+  `indian` tinyint(1) NOT NULL,
+  `indian_info` text NOT NULL,
+  `scientific_discipline_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `jos_phd_applicants`
 --
 
-INSERT INTO `jos_phd_applicants` (`id`, `firstname`, `lastname`, `gender_id`, `passport`, `birth_date`, `birth_country_id`, `street`, `city`, `postalcode`, `country_id`, `telephone`, `email`, `wheredidu_id`, `other_fellowships`, `other_fellowships_text`, `career_breaks`, `career_breaks_text`, `career_breaks_filename`, `additional_info`, `additional_info_filename`, `phd_thesis`, `expected_lecture`, `research_experience`, `ethical_issue`, `user_username`, `status_id`, `submit_date`, `committee_username`, `modified`) VALUES
-(1, 'test1', 'test1', 1, '111222333', '1982-09-01', 199, 'Joan Oms', 'Canet de Mar', '08360', 199, '111222333', 'mail@mail.com', 2, 0, '', 0, '', NULL, 'informacion adicional', 'newinvoice.js', 'sdfasdf', 'demo', 'Este es el texto de Research Experience para test1', 0, 'test1', 1, '2011-12-02 10:52:05', 'com1', '2011-12-02 16:40:49'),
-(2, 'asdf', 'khk', 1, '875687687', '1987-09-22', 199, '234234', '234234', '3434', 199, '34234234', 'sfsd@mail.com', 1, 0, '', 0, '', NULL, NULL, '', '', '', '', 0, 'test5', 2, '2011-09-29 09:30:43', NULL, '2011-09-29 07:30:43'),
-(4, 'asdf', 'asdf', 1, '868768', '1990-12-11', 13, 'asdf', 'asdf', '97987', 3, '234234', 'ro@mail.com', 1, 0, '', 0, '', NULL, NULL, '', '', '', '', 0, 'test3', 1, NULL, NULL, '2011-10-19 09:31:42'),
-(5, 'test2', 'test2', 1, '234234234', '1990-12-13', 199, 'asdfas', 'asdf', '23423', 199, '234234234', 'a@mail.com', 2, 0, '', 0, '', NULL, 'Mas info adicional', '', 'asdfasdf', '', '', 0, 'test2', 2, '2011-12-01 11:24:49', 'com1', '2011-12-01 10:32:56');
+INSERT INTO `jos_phd_applicants` (`id`, `firstname`, `lastname`, `gender_id`, `passport`, `birth_date`, `birth_country_id`, `street`, `city`, `postalcode`, `country_id`, `telephone`, `email`, `wheredidu_id`, `other_fellowships`, `other_fellowships_text`, `career_breaks`, `career_breaks_text`, `career_breaks_filename`, `additional_info`, `additional_info_filename`, `phd_thesis`, `expected_lecture`, `research_experience`, `ethical_issue`, `user_username`, `status_id`, `submit_date`, `committee_username`, `modified`, `docs_checked`, `missing_docs`, `academic_comments`, `applicant_contacted`, `applicant_contacted_date`, `indian`, `indian_info`, `scientific_discipline_id`) VALUES
+(1, 'test1', 'test1', 1, '111222333', '1982-09-01', 199, 'Joan Oms', 'Canet de Mar', '08360', 199, '111222333', 'mail@mail.com', 2, 0, '', 0, '', NULL, 'informacion adicional', 'newinvoice.js', 'sdfasdf', 'demo', 'Este es el texto de Research Experience para test1', 0, 'test1', 1, '2011-12-02 10:52:05', 'com1', '2011-12-02 16:40:49', 0, '0', '', 0, '0000-00-00', 0, '', 0),
+(2, 'asdf', 'khk', 1, '875687687', '1987-09-22', 199, '234234', '234234', '3434', 199, '34234234', 'sfsd@mail.com', 1, 0, '', 0, '', NULL, 'other comments', '', '', '', '', 0, 'test5', 2, '2011-09-29 09:30:43', NULL, '2013-02-08 09:20:05', 1, 'Missing docs', 'Academic comments', 1, '2013-02-08', 0, 'Indian information', 0),
+(4, 'asdf', 'asdf', 1, '868768', '1990-12-11', 13, 'asdf', 'asdf', '97987', 3, '234234', 'ro@mail.com', 1, 0, '', 0, '', NULL, NULL, '', '', '', '', 0, 'test3', 1, NULL, NULL, '2011-10-19 09:31:42', 0, '0', '', 0, '0000-00-00', 0, '', 0),
+(5, 'test2', 'test2', 1, '234234234', '1990-12-13', 199, 'asdfas', 'asdf', '23423', 199, '234234234', 'a@mail.com', 2, 0, '', 0, '', NULL, 'Other comments', '', 'asdfasdf', '', '', 0, 'test2', 2, '2011-12-01 11:24:49', 'com1', '2013-02-08 09:19:53', 1, 'Missing docs', 'Academic comments', 1, '2012-12-25', 0, 'Indian information', 2);
 
 -- --------------------------------------------------------
 
@@ -1303,7 +1311,7 @@ CREATE TABLE IF NOT EXISTS `jos_phd_degrees` (
   `director_name` varchar(50) DEFAULT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `jos_phd_degrees`
@@ -1320,7 +1328,8 @@ INSERT INTO `jos_phd_degrees` (`id`, `applicant_id`, `type`, `degree`, `universi
 (8, 1, 'academic', 'asdfas', 'sdf', '', NULL, '2011-11-09', 199, NULL, '2011-12-01 10:17:20'),
 (9, 5, 'postdoctoral', '', 'asdf', '', '2011-11-06', '2011-12-07', 199, NULL, '2011-12-01 10:21:19'),
 (10, 5, 'doctoral', 'asdfasd', 'sadfsad', '', '2011-11-07', '2011-12-07', 199, 'asdfasdf', '2011-12-01 10:22:58'),
-(11, 5, 'academic', 'sdfasd', 'sdfas', '', NULL, '2011-11-08', 199, NULL, '2011-12-01 10:23:12');
+(11, 5, 'academic', 'sdfasd', 'sdfas', '', NULL, '2011-11-08', 199, NULL, '2011-12-01 10:23:12'),
+(12, 5, 'academic', 'asdf', 'asdfa', '', NULL, NULL, NULL, NULL, '2012-11-29 15:28:28');
 
 -- --------------------------------------------------------
 
@@ -1361,7 +1370,7 @@ CREATE TABLE IF NOT EXISTS `jos_phd_docs` (
   `description` text NOT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `jos_phd_docs`
@@ -1383,7 +1392,8 @@ INSERT INTO `jos_phd_docs` (`id`, `doc_type_id`, `applicant_id`, `filename`, `de
 (13, 1, 5, 'prototype.js', 'asdfasd', '2011-12-01 10:23:35'),
 (14, 2, 5, 'search.js', 'sadfasdf', '2011-12-01 10:23:42'),
 (15, 3, 5, 'settings.js', 'sadfasdf', '2011-12-01 10:23:50'),
-(16, 4, 5, 'newinvoice.js', 'asdfasdf', '2011-12-01 10:23:57');
+(16, 4, 5, 'newinvoice.js', 'asdfasdf', '2011-12-01 10:23:57'),
+(26, 4, 5, 'LICENSES.php', '', '2012-11-30 10:15:25');
 
 -- --------------------------------------------------------
 
@@ -1491,7 +1501,7 @@ CREATE TABLE IF NOT EXISTS `jos_phd_referees` (
   `sent_mail` date DEFAULT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `jos_phd_referees`
@@ -1506,7 +1516,7 @@ INSERT INTO `jos_phd_referees` (`id`, `applicant_id`, `firstname`, `lastname`, `
 (6, 3, 'John', 'Mac', 'jb@mail.com', NULL, '631702268', NULL, '2011-12-01 10:08:07'),
 (7, 3, 'Pi', 'Com', 'p@mail.com', NULL, '1175321618', NULL, '2011-12-01 10:09:24'),
 (8, 5, 'asdfas', 'asdfasd', 'a@mail.com', NULL, '750607589', NULL, '2011-12-01 10:24:09'),
-(9, 5, 'asdfas', 'asdfasd', 'a@mail.org', NULL, '1532095165', NULL, '2011-12-01 10:24:20');
+(10, 5, 'adf', 'asdf', 'a@mail.com', 'index.php', '1763279309', NULL, '2012-12-03 17:25:24');
 
 -- --------------------------------------------------------
 
@@ -1612,6 +1622,43 @@ INSERT INTO `jos_phd_roles` (`id`, `description`, `short_description`, `order`) 
 (2, 'Group Leader', 'Group Leader', 2),
 (3, 'Committee', 'Committee', 3),
 (4, 'Applicant', 'Applicant', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jos_phd_scientific_discipline`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_phd_scientific_discipline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(50) NOT NULL,
+  `short_description` varchar(50) NOT NULL,
+  `order` smallint(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+--
+-- Dumping data for table `jos_phd_scientific_discipline`
+--
+
+INSERT INTO `jos_phd_scientific_discipline` (`id`, `description`, `short_description`, `order`) VALUES
+(1, 'Biology', 'Biology', 1),
+(2, 'Molecular Biology', 'Molecular Biology', 2),
+(3, 'Biochemistry', 'Biochemistry', 3),
+(4, 'Biochemistry and Molecular Biology', 'Biochemistry and Molecular Biology', 4),
+(5, 'Biotechnology', 'Biotechnology', 5),
+(6, 'Molecular Biotechnology', 'Molecular Biotechnology', 6),
+(7, 'Molecular Bioengineering', 'Molecular Bioengineering', 7),
+(8, 'Medical Sciences', 'Medical Sciences', 8),
+(9, 'Pharmacy', 'Pharmacy', 9),
+(10, 'Physics', 'Physics', 10),
+(11, 'Biophysics', 'Biophysics', 11),
+(13, 'Neuroscience', 'Neuroscience', 13),
+(12, 'Genetics', 'Genetics', 12),
+(14, 'Bioinformatics', 'Bioinformatics', 14),
+(15, 'Biomedicine and Biotechnology', 'Biomedicine and Biotechnology', 15),
+(16, 'Pharmaceutical Chemistry', 'Pharmaceutical Chemistry', 16),
+(17, 'Bioengineering', 'Bioengineering', 17);
 
 -- --------------------------------------------------------
 
@@ -2012,7 +2059,8 @@ CREATE TABLE IF NOT EXISTS `jos_session` (
 --
 
 INSERT INTO `jos_session` (`username`, `time`, `session_id`, `guest`, `userid`, `usertype`, `gid`, `client_id`, `data`) VALUES
-('', '1354103709', 'u6fuhka16tqf4ah5sg4lm1ole0', 1, 0, '', 0, 0, '__default|a:9:{s:15:"session.counter";i:1;s:19:"session.timer.start";i:1354103709;s:18:"session.timer.last";i:1354103709;s:17:"session.timer.now";i:1354103709;s:22:"session.client.browser";s:74:"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:16.0) Gecko/20100101 Firefox/16.0";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:1:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:8:"usertype";N;s:5:"block";N;s:9:"sendEmail";i:0;s:3:"gid";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:3:"aid";i:0;s:5:"guest";i:1;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:74:"/home/roberto/workspace/phdlacaixa/libraries/joomla/html/parameter/element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:16:"com_mailto.links";a:3:{s:40:"1c26db2f3f8daad0ebd04fcd5213824f8a818cda";O:8:"stdClass":2:{s:4:"link";s:112:"http://localhost/phd/index.php?option=com_content&view=article&id=47:users-profiles-and-pass&catid=1:latest-news";s:6:"expiry";i:1354103710;}s:40:"1de49e9567d42545ad0a194c02396531753dfc9b";O:8:"stdClass":2:{s:4:"link";s:107:"http://localhost/phd/index.php?option=com_content&view=article&id=48:test-collaboration&catid=1:latest-news";s:6:"expiry";i:1354103710;}s:40:"10ad979f742de7d22aacc3a7dea443513c0f2d55";O:8:"stdClass":2:{s:4:"link";s:159:"http://localhost/phd/index.php?option=com_content&view=article&id=46:testing-and-process-recommendations-for-software-engineering&catid=1:latest-news&Itemid=28";s:6:"expiry";i:1354103710;}}s:13:"session.token";s:32:"d6a534c80b4b09a9a633ca8debbd82bf";}');
+('', '1379428462', 'q4ndto6ud8vctpucteg0q74mu6', 1, 0, '', 0, 1, '__default|a:8:{s:15:"session.counter";i:1;s:19:"session.timer.start";i:1379428459;s:18:"session.timer.last";i:1379428459;s:17:"session.timer.now";i:1379428459;s:22:"session.client.browser";s:74:"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:1:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:8:"usertype";N;s:5:"block";N;s:9:"sendEmail";i:0;s:3:"gid";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:3:"aid";i:0;s:5:"guest";i:1;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:74:"/home/roberto/workspace/phdlacaixa/libraries/joomla/html/parameter/element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"e5ada11b3141681b17e932c8f4a0c583";}'),
+('admin', '1379428727', '64m2fb0qvo2t4ikc5tceecfbt3', 0, 62, 'Super Administrator', 25, 1, '__default|a:8:{s:15:"session.counter";i:5;s:19:"session.timer.start";i:1379428459;s:18:"session.timer.last";i:1379428468;s:17:"session.timer.now";i:1379428727;s:22:"session.client.browser";s:74:"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:3:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}s:11:"application";a:1:{s:4:"data";O:8:"stdClass":1:{s:4:"lang";s:0:"";}}s:10:"com_cpanel";a:1:{s:4:"data";O:8:"stdClass":1:{s:9:"mtupgrade";O:8:"stdClass":1:{s:7:"checked";b:1;}}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";s:2:"62";s:4:"name";s:13:"Administrator";s:8:"username";s:5:"admin";s:5:"email";s:34:"roberto.bartolome@irbbarcelona.org";s:8:"password";s:65:"ca193049daf651a4e17b4c2fd7d886b1:4LkuxelFYFR5ysYnlhZ01jmcsbhVEScE";s:14:"password_clear";s:0:"";s:8:"usertype";s:19:"Super Administrator";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:3:"gid";s:2:"25";s:12:"registerDate";s:19:"2009-10-08 18:40:28";s:13:"lastvisitDate";s:19:"2013-05-28 09:27:01";s:10:"activation";s:0:"";s:6:"params";s:56:"admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=1\n\n";s:3:"aid";i:2;s:5:"guest";i:0;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:74:"/home/roberto/workspace/phdlacaixa/libraries/joomla/html/parameter/element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":5:{s:14:"admin_language";s:0:"";s:8:"language";s:0:"";s:6:"editor";s:0:"";s:8:"helpsite";s:0:"";s:8:"timezone";s:1:"1";}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"e5ada11b3141681b17e932c8f4a0c583";}');
 
 -- --------------------------------------------------------
 
@@ -2080,20 +2128,20 @@ CREATE TABLE IF NOT EXISTS `jos_users` (
 --
 
 INSERT INTO `jos_users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
-(62, 'Administrator', 'admin', 'roberto.bartolome@irbbarcelona.org', 'ca193049daf651a4e17b4c2fd7d886b1:4LkuxelFYFR5ysYnlhZ01jmcsbhVEScE', 'Super Administrator', 0, 1, 25, '2009-10-08 18:40:28', '2012-11-14 14:41:58', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=1\n\n'),
+(62, 'Administrator', 'admin', 'roberto.bartolome@irbbarcelona.org', 'ca193049daf651a4e17b4c2fd7d886b1:4LkuxelFYFR5ysYnlhZ01jmcsbhVEScE', 'Super Administrator', 0, 1, 25, '2009-10-08 18:40:28', '2013-09-17 14:34:22', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=1\n\n'),
 (63, 'Anna Alsina', 'aalsina', 'anna@mail.com', '752fa41c95f4caec78f61c5cc7f4c591:XOEyD4sRI3T1wRZJwUZLli907Jt1PJRK', 'Registered', 0, 0, 18, '2009-11-02 14:36:08', '2011-12-02 18:16:44', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (64, 'Sonia Saborit', 'ssaborit', 'sonia@mail.com', '5e4b6da19a71783ec8f9f558e9fabd5b:Q5PzSdy0VOOveZwQGjnSHnKbSfapr2nn', 'Registered', 0, 0, 18, '2009-11-02 14:36:34', '2011-03-01 16:13:16', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (65, 'Ferran Azorin', 'fazorin', 'ferran@mail.com', '856f43661e634028aec9c22a1547add3:I7DsarEWVIDLygwAWhkWFJ2dQC40WyUq', 'Registered', 0, 0, 18, '2009-11-02 14:37:08', '2011-02-23 08:06:33', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\npage_title=Edit Your Details\nshow_page_title=1\n\n'),
 (66, 'Margarida Corominas', 'mcorominas', 'marga@mail.com', 'd0fcd1a9e3859c08c857cd9e666e54ca:fg5eLVzHikVEUPnBDCcSAzbGCCG8SrT8', 'Registered', 0, 0, 18, '2009-11-02 14:37:41', '2010-01-13 06:10:43', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(67, 'Test1', 'test1', 'test1@irbtest.org', '657eb7d60818d99471551e6820277641:RWGXHZlIU82nOlIkiuFAnXg3JN4Z5gMx', 'Registered', 0, 0, 18, '2009-11-20 08:23:50', '2012-05-15 06:57:10', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
+(67, 'Test1', 'test1', 'test1@irbtest.org', '657eb7d60818d99471551e6820277641:RWGXHZlIU82nOlIkiuFAnXg3JN4Z5gMx', 'Registered', 0, 0, 18, '2009-11-20 08:23:50', '2013-02-08 08:37:28', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (68, 'Test2', 'test2', 'test2@test2.org', 'b3d655949fe86a1eec3035c551c69dca:U7dE6DHQtVb9BVoEQ6MP5saZUCQ37SMp', 'Registered', 0, 0, 18, '2009-11-20 08:24:22', '2011-12-02 09:48:24', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (69, 'Test3', 'test3', 'test3@irbtest.org', '285424df591a08797fc1c5b5577cb4c5:mPTmxYUeCVI0HtFxAtZTQpuyn3TMShzj', 'Registered', 0, 0, 18, '2009-11-20 08:24:48', '2011-10-24 10:16:22', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (70, 'Jordi Casanova', 'jcasanova', 'jcasanova@mail.com', '86ee56518f0cf3de094dd5aa7f228f5c:7sMs7IYorGdflpBs7guJVX2BhjWFI8uM', 'Registered', 0, 0, 18, '2009-12-01 05:48:31', '2009-12-18 16:29:48', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (71, 'cgonzalez', 'cgonzalez', 'cgonzalez@mail.com', '2703e64a467a37ce5d618f51ab607dcc:rukcA9qJACxkA6DftZW6RmGd5uHqVw0L', 'Registered', 0, 0, 18, '2009-12-01 05:49:12', '2009-12-03 16:24:41', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (72, 'Roberto Bartolomé', 'rbartolome', 'bartolome@irbbarcelona.org', 'cbbcdcde88a9b463be34819693f121bd:WHjGlwcuk9pPKsQAx69pySoRVIV4zHqZ', 'Registered', 0, 0, 18, '2009-12-04 09:53:14', '2011-12-23 12:15:57', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (73, 'Roberto', 'roberto', 'r@mail.net', '25f4b575ec1b73b8554397a584f9fb67:zsSQ8LQjQzMDrHTHIGuyEGod6JhVQ3aI', 'Registered', 0, 0, 18, '2010-03-18 11:07:56', '2010-04-06 14:49:06', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(74, 'phdadmin', 'phdadmin', 'phdadmin@mail.com', '1779836f6ac1d042e686e08ab76d8529:rBfJvTPZdk4RQyjzDiN8ieWz991zWmQ2', 'Registered', 0, 0, 18, '2010-04-06 05:07:13', '2011-12-01 16:20:23', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(75, 'phdadmin2', 'phdadmin2', 'phdadmin2@mail.com', 'bfe1eb2af9d69e879f38f51748befbdd:G056NFP9K0OL3xBDjM4UIdUFztogrAo0', 'Registered', 0, 0, 18, '2010-04-06 05:07:57', '2010-05-27 16:29:10', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
+(74, 'phdadmin', 'phdadmin', 'phdadmin@mail.com', '6c96a2c681440bec1814f340ae847059:csln82kNlwBewxBAnPzrwxPjyXNkC156', 'Registered', 0, 0, 18, '2010-04-06 05:07:13', '2013-02-08 09:19:45', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
+(75, 'phdadmin2', 'phdadmin2', 'phdadmin2@mail.com', '0f62e600bba6fef434b26cfa90194ee6:DoFEvP4v3QSanuwjzSGbyuc5Ey3Z2vu2', 'Registered', 0, 0, 18, '2010-04-06 05:07:57', '2010-05-27 16:29:10', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (76, 'cadb', 'cadb', 'cadb@mail.com', 'cb1f2147b10d5817a423792a44c31c43:kJ3G4OIRxYAnls5RqPqqTpM75SOfQnbM', 'Registered', 0, 0, 18, '2010-04-06 05:08:26', '2011-12-01 10:25:50', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (77, 'mmp', 'mmp', 'mmp@mail.com', '2d091d8fff455389b8e4dba924750ca1:BgLTue11ggn4qhojZAVNt9iAoYaNEpAL', 'Registered', 0, 0, 18, '2010-04-06 05:09:02', '2011-02-16 06:00:43', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (78, 'onco', 'onco', 'onco@mail.com', '238fa4e127031f75c462ba02cdd27d20:K55mwSoV2Hqm77ruiftLzWktRBsPOhh6', 'Registered', 0, 0, 18, '2010-04-06 05:09:36', '2010-05-12 17:01:36', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
