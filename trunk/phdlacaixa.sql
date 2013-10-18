@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 17, 2013 at 04:46 PM
+-- Generation Time: Oct 18, 2013 at 10:49 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.3.10-1ubuntu3.8
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `phdlacaixa`
 --
-CREATE DATABASE `phdlacaixa` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `phdlacaixa`;
 
 -- --------------------------------------------------------
 
@@ -915,47 +913,6 @@ INSERT INTO `jos_newsfeeds` (`catid`, `id`, `name`, `alias`, `link`, `filename`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jos_phd_applicant_ethical_issue`
---
-
-CREATE TABLE IF NOT EXISTS `jos_phd_applicant_ethical_issue` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `applicant_id` int(11) NOT NULL,
-  `ethical_issue_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jos_phd_applicant_programme`
---
-
-CREATE TABLE IF NOT EXISTS `jos_phd_applicant_programme` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `applicant_id` int(11) DEFAULT NULL,
-  `programme_id` int(11) DEFAULT NULL,
-  `order` tinyint(4) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
---
--- Dumping data for table `jos_phd_applicant_programme`
---
-
-INSERT INTO `jos_phd_applicant_programme` (`id`, `applicant_id`, `programme_id`, `order`) VALUES
-(1, 2, 1, 1),
-(2, 2, 2, 2),
-(3, 1, 1, 1),
-(4, 1, 2, 2),
-(5, 3, 1, 1),
-(6, 3, 2, 2),
-(7, 5, 5, 1),
-(8, 5, 4, 2);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `jos_phd_applicants`
 --
 
@@ -1010,6 +967,47 @@ INSERT INTO `jos_phd_applicants` (`id`, `firstname`, `lastname`, `gender_id`, `p
 (2, 'asdf', 'khk', 1, '875687687', '1987-09-22', 199, '234234', '234234', '3434', 199, '34234234', 'sfsd@mail.com', 1, 0, '', 0, '', NULL, 'other comments', '', '', '', '', 0, 'test5', 2, '2011-09-29 09:30:43', NULL, '2013-02-08 09:20:05', 1, 'Missing docs', 'Academic comments', 1, '2013-02-08', 0, 'Indian information', 0),
 (4, 'asdf', 'asdf', 1, '868768', '1990-12-11', 13, 'asdf', 'asdf', '97987', 3, '234234', 'ro@mail.com', 1, 0, '', 0, '', NULL, NULL, '', '', '', '', 0, 'test3', 1, NULL, NULL, '2011-10-19 09:31:42', 0, '0', '', 0, '0000-00-00', 0, '', 0),
 (5, 'test2', 'test2', 1, '234234234', '1990-12-13', 199, 'asdfas', 'asdf', '23423', 199, '234234234', 'a@mail.com', 2, 0, '', 0, '', NULL, 'Other comments', '', 'asdfasdf', '', '', 0, 'test2', 2, '2011-12-01 11:24:49', 'com1', '2013-02-08 09:19:53', 1, 'Missing docs', 'Academic comments', 1, '2012-12-25', 0, 'Indian information', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jos_phd_applicant_ethical_issue`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_phd_applicant_ethical_issue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `applicant_id` int(11) NOT NULL,
+  `ethical_issue_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jos_phd_applicant_programme`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_phd_applicant_programme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `applicant_id` int(11) DEFAULT NULL,
+  `programme_id` int(11) DEFAULT NULL,
+  `order` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `jos_phd_applicant_programme`
+--
+
+INSERT INTO `jos_phd_applicant_programme` (`id`, `applicant_id`, `programme_id`, `order`) VALUES
+(1, 2, 1, 1),
+(2, 2, 2, 2),
+(3, 1, 1, 1),
+(4, 1, 2, 2),
+(5, 3, 1, 1),
+(6, 3, 2, 2),
+(7, 5, 5, 1),
+(8, 5, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -1334,31 +1332,6 @@ INSERT INTO `jos_phd_degrees` (`id`, `applicant_id`, `type`, `degree`, `universi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jos_phd_doc_types`
---
-
-CREATE TABLE IF NOT EXISTS `jos_phd_doc_types` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(100) NOT NULL,
-  `short_description` varchar(30) NOT NULL,
-  `order` smallint(6) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `jos_phd_doc_types`
---
-
-INSERT INTO `jos_phd_doc_types` (`id`, `description`, `short_description`, `order`) VALUES
-(3, 'Academic record', 'Academic record', 3),
-(2, 'Motivation letter', 'Motivation letter', 2),
-(1, 'Curriculum Vitae', 'Curriculum Vitae', 1),
-(5, 'Recommendation letter', 'Recommendation letter', 5),
-(4, 'Eligibility Form', 'Eligibility Form', 4);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `jos_phd_docs`
 --
 
@@ -1394,6 +1367,31 @@ INSERT INTO `jos_phd_docs` (`id`, `doc_type_id`, `applicant_id`, `filename`, `de
 (15, 3, 5, 'settings.js', 'sadfasdf', '2011-12-01 10:23:50'),
 (16, 4, 5, 'newinvoice.js', 'asdfasdf', '2011-12-01 10:23:57'),
 (26, 4, 5, 'LICENSES.php', '', '2012-11-30 10:15:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jos_phd_doc_types`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_phd_doc_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(100) NOT NULL,
+  `short_description` varchar(30) NOT NULL,
+  `order` smallint(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `jos_phd_doc_types`
+--
+
+INSERT INTO `jos_phd_doc_types` (`id`, `description`, `short_description`, `order`) VALUES
+(3, 'Academic record', 'Academic record', 3),
+(2, 'Motivation letter', 'Motivation letter', 2),
+(1, 'Curriculum Vitae', 'Curriculum Vitae', 1),
+(5, 'Recommendation letter', 'Recommendation letter', 5),
+(4, 'Eligibility Form', 'Eligibility Form', 4);
 
 -- --------------------------------------------------------
 
@@ -1543,6 +1541,30 @@ INSERT INTO `jos_phd_rights` (`id`, `description`, `short_description`, `order`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jos_phd_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_phd_roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) NOT NULL,
+  `short_description` varchar(100) NOT NULL,
+  `order` smallint(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `jos_phd_roles`
+--
+
+INSERT INTO `jos_phd_roles` (`id`, `description`, `short_description`, `order`) VALUES
+(1, 'Administrator', 'Administrator', 1),
+(2, 'Group Leader', 'Group Leader', 2),
+(3, 'Committee', 'Committee', 3),
+(4, 'Applicant', 'Applicant', 4);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jos_phd_role_tab_right`
 --
 
@@ -1598,30 +1620,6 @@ INSERT INTO `jos_phd_role_tab_right` (`role_id`, `tab_id`, `right_id`) VALUES
 (4, 8, 2),
 (4, 9, 2),
 (4, 10, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jos_phd_roles`
---
-
-CREATE TABLE IF NOT EXISTS `jos_phd_roles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) NOT NULL,
-  `short_description` varchar(100) NOT NULL,
-  `order` smallint(6) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `jos_phd_roles`
---
-
-INSERT INTO `jos_phd_roles` (`id`, `description`, `short_description`, `order`) VALUES
-(1, 'Administrator', 'Administrator', 1),
-(2, 'Group Leader', 'Group Leader', 2),
-(3, 'Committee', 'Committee', 3),
-(4, 'Applicant', 'Applicant', 4);
 
 -- --------------------------------------------------------
 
@@ -1693,6 +1691,34 @@ INSERT INTO `jos_phd_status` (`id`, `description`, `short_description`, `mail_su
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jos_phd_tabs`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_phd_tabs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `jos_phd_tabs`
+--
+
+INSERT INTO `jos_phd_tabs` (`id`, `description`) VALUES
+(1, 'personal_data'),
+(2, 'academic_info'),
+(3, 'files'),
+(4, 'referees'),
+(5, 'work_experiences'),
+(6, 'summary_of_thesis'),
+(7, 'summary_of_research'),
+(8, 'programmes'),
+(9, 'ethical_issues'),
+(10, 'status');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jos_phd_tab_application`
 --
 
@@ -1729,34 +1755,6 @@ INSERT INTO `jos_phd_tab_application` (`id`, `tab_id`, `application_id`, `show`)
 (18, 8, 2, 1),
 (19, 9, 2, 1),
 (20, 10, 2, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jos_phd_tabs`
---
-
-CREATE TABLE IF NOT EXISTS `jos_phd_tabs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `jos_phd_tabs`
---
-
-INSERT INTO `jos_phd_tabs` (`id`, `description`) VALUES
-(1, 'personal_data'),
-(2, 'academic_info'),
-(3, 'files'),
-(4, 'referees'),
-(5, 'work_experiences'),
-(6, 'summary_of_thesis'),
-(7, 'summary_of_research'),
-(8, 'programmes'),
-(9, 'ethical_issues'),
-(10, 'status');
 
 -- --------------------------------------------------------
 
@@ -1899,6 +1897,32 @@ INSERT INTO `jos_plugins` (`id`, `name`, `element`, `folder`, `access`, `orderin
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jos_polls`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_polls` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) NOT NULL DEFAULT '',
+  `voters` int(9) NOT NULL DEFAULT '0',
+  `checked_out` int(11) NOT NULL DEFAULT '0',
+  `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `access` int(11) NOT NULL DEFAULT '0',
+  `lag` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `jos_polls`
+--
+
+INSERT INTO `jos_polls` (`id`, `title`, `alias`, `voters`, `checked_out`, `checked_out_time`, `published`, `access`, `lag`) VALUES
+(14, 'Joomla! is used for?', 'joomla-is-used-for', 11, 0, '0000-00-00 00:00:00', 1, 0, 86400);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jos_poll_data`
 --
 
@@ -1976,32 +2000,6 @@ CREATE TABLE IF NOT EXISTS `jos_poll_menu` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jos_polls`
---
-
-CREATE TABLE IF NOT EXISTS `jos_polls` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL DEFAULT '',
-  `alias` varchar(255) NOT NULL DEFAULT '',
-  `voters` int(9) NOT NULL DEFAULT '0',
-  `checked_out` int(11) NOT NULL DEFAULT '0',
-  `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `published` tinyint(1) NOT NULL DEFAULT '0',
-  `access` int(11) NOT NULL DEFAULT '0',
-  `lag` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-
---
--- Dumping data for table `jos_polls`
---
-
-INSERT INTO `jos_polls` (`id`, `title`, `alias`, `voters`, `checked_out`, `checked_out_time`, `published`, `access`, `lag`) VALUES
-(14, 'Joomla! is used for?', 'joomla-is-used-for', 11, 0, '0000-00-00 00:00:00', 1, 0, 86400);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `jos_sections`
 --
 
@@ -2059,8 +2057,8 @@ CREATE TABLE IF NOT EXISTS `jos_session` (
 --
 
 INSERT INTO `jos_session` (`username`, `time`, `session_id`, `guest`, `userid`, `usertype`, `gid`, `client_id`, `data`) VALUES
-('', '1379428462', 'q4ndto6ud8vctpucteg0q74mu6', 1, 0, '', 0, 1, '__default|a:8:{s:15:"session.counter";i:1;s:19:"session.timer.start";i:1379428459;s:18:"session.timer.last";i:1379428459;s:17:"session.timer.now";i:1379428459;s:22:"session.client.browser";s:74:"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:1:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:8:"usertype";N;s:5:"block";N;s:9:"sendEmail";i:0;s:3:"gid";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:3:"aid";i:0;s:5:"guest";i:1;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:74:"/home/roberto/workspace/phdlacaixa/libraries/joomla/html/parameter/element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"e5ada11b3141681b17e932c8f4a0c583";}'),
-('admin', '1379428727', '64m2fb0qvo2t4ikc5tceecfbt3', 0, 62, 'Super Administrator', 25, 1, '__default|a:8:{s:15:"session.counter";i:5;s:19:"session.timer.start";i:1379428459;s:18:"session.timer.last";i:1379428468;s:17:"session.timer.now";i:1379428727;s:22:"session.client.browser";s:74:"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) Gecko/20100101 Firefox/23.0";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:3:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}s:11:"application";a:1:{s:4:"data";O:8:"stdClass":1:{s:4:"lang";s:0:"";}}s:10:"com_cpanel";a:1:{s:4:"data";O:8:"stdClass":1:{s:9:"mtupgrade";O:8:"stdClass":1:{s:7:"checked";b:1;}}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";s:2:"62";s:4:"name";s:13:"Administrator";s:8:"username";s:5:"admin";s:5:"email";s:34:"roberto.bartolome@irbbarcelona.org";s:8:"password";s:65:"ca193049daf651a4e17b4c2fd7d886b1:4LkuxelFYFR5ysYnlhZ01jmcsbhVEScE";s:14:"password_clear";s:0:"";s:8:"usertype";s:19:"Super Administrator";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:3:"gid";s:2:"25";s:12:"registerDate";s:19:"2009-10-08 18:40:28";s:13:"lastvisitDate";s:19:"2013-05-28 09:27:01";s:10:"activation";s:0:"";s:6:"params";s:56:"admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=1\n\n";s:3:"aid";i:2;s:5:"guest";i:0;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:74:"/home/roberto/workspace/phdlacaixa/libraries/joomla/html/parameter/element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":5:{s:14:"admin_language";s:0:"";s:8:"language";s:0:"";s:6:"editor";s:0:"";s:8:"helpsite";s:0:"";s:8:"timezone";s:1:"1";}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"e5ada11b3141681b17e932c8f4a0c583";}');
+('', '1380878591', 'od08t5lusvskrjomlvlpjlf1t1', 1, 0, '', 0, 0, NULL),
+('roberto', '1380878599', 'o628h7esjbaqbim45utgmr2il4', 0, 73, 'Registered', 18, 0, '__default|a:9:{s:15:"session.counter";i:2;s:19:"session.timer.start";i:1380878590;s:18:"session.timer.last";i:1380878590;s:17:"session.timer.now";i:1380878599;s:22:"session.client.browser";s:74:"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:24.0) Gecko/20100101 Firefox/24.0";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:1:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";s:2:"73";s:4:"name";s:7:"Roberto";s:8:"username";s:7:"roberto";s:5:"email";s:10:"r@mail.net";s:8:"password";s:65:"25f4b575ec1b73b8554397a584f9fb67:zsSQ8LQjQzMDrHTHIGuyEGod6JhVQ3aI";s:14:"password_clear";s:0:"";s:8:"usertype";s:10:"Registered";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"0";s:3:"gid";s:2:"18";s:12:"registerDate";s:19:"2010-03-18 11:07:56";s:13:"lastvisitDate";s:19:"2010-04-06 14:49:06";s:10:"activation";s:0:"";s:6:"params";s:56:"admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n";s:3:"aid";i:1;s:5:"guest";i:0;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:74:"/home/roberto/workspace/phdlacaixa/libraries/joomla/html/parameter/element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":5:{s:14:"admin_language";s:0:"";s:8:"language";s:0:"";s:6:"editor";s:0:"";s:8:"helpsite";s:0:"";s:8:"timezone";s:1:"0";}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:16:"com_mailto.links";a:3:{s:40:"0fbda47b57f6dfa6d39294dce73cf2e4db391256";O:8:"stdClass":2:{s:4:"link";s:119:"http://localhost/phdlacaixa/index.php?option=com_content&view=article&id=47:users-profiles-and-pass&catid=1:latest-news";s:6:"expiry";i:1380878592;}s:40:"f0ba524d658b269c950b724d8aed55ef7b926b06";O:8:"stdClass":2:{s:4:"link";s:114:"http://localhost/phdlacaixa/index.php?option=com_content&view=article&id=48:test-collaboration&catid=1:latest-news";s:6:"expiry";i:1380878592;}s:40:"9f509d0fa3bbcbf597ab64cc85c211b1226154eb";O:8:"stdClass":2:{s:4:"link";s:166:"http://localhost/phdlacaixa/index.php?option=com_content&view=article&id=46:testing-and-process-recommendations-for-software-engineering&catid=1:latest-news&Itemid=28";s:6:"expiry";i:1380878592;}}s:13:"session.token";s:32:"090d7a21fb517e42a61d0c2fc94e2c2a";}');
 
 -- --------------------------------------------------------
 
@@ -2128,35 +2126,17 @@ CREATE TABLE IF NOT EXISTS `jos_users` (
 --
 
 INSERT INTO `jos_users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
-(62, 'Administrator', 'admin', 'roberto.bartolome@irbbarcelona.org', 'ca193049daf651a4e17b4c2fd7d886b1:4LkuxelFYFR5ysYnlhZ01jmcsbhVEScE', 'Super Administrator', 0, 1, 25, '2009-10-08 18:40:28', '2013-09-17 14:34:22', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=1\n\n'),
-(63, 'Anna Alsina', 'aalsina', 'anna@mail.com', '752fa41c95f4caec78f61c5cc7f4c591:XOEyD4sRI3T1wRZJwUZLli907Jt1PJRK', 'Registered', 0, 0, 18, '2009-11-02 14:36:08', '2011-12-02 18:16:44', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(64, 'Sonia Saborit', 'ssaborit', 'sonia@mail.com', '5e4b6da19a71783ec8f9f558e9fabd5b:Q5PzSdy0VOOveZwQGjnSHnKbSfapr2nn', 'Registered', 0, 0, 18, '2009-11-02 14:36:34', '2011-03-01 16:13:16', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(65, 'Ferran Azorin', 'fazorin', 'ferran@mail.com', '856f43661e634028aec9c22a1547add3:I7DsarEWVIDLygwAWhkWFJ2dQC40WyUq', 'Registered', 0, 0, 18, '2009-11-02 14:37:08', '2011-02-23 08:06:33', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\npage_title=Edit Your Details\nshow_page_title=1\n\n'),
-(66, 'Margarida Corominas', 'mcorominas', 'marga@mail.com', 'd0fcd1a9e3859c08c857cd9e666e54ca:fg5eLVzHikVEUPnBDCcSAzbGCCG8SrT8', 'Registered', 0, 0, 18, '2009-11-02 14:37:41', '2010-01-13 06:10:43', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(67, 'Test1', 'test1', 'test1@irbtest.org', '657eb7d60818d99471551e6820277641:RWGXHZlIU82nOlIkiuFAnXg3JN4Z5gMx', 'Registered', 0, 0, 18, '2009-11-20 08:23:50', '2013-02-08 08:37:28', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
+(62, 'Administrator', 'admin', 'roberto.bartolome@irbbarcelona.org', 'ca193049daf651a4e17b4c2fd7d886b1:4LkuxelFYFR5ysYnlhZ01jmcsbhVEScE', 'Super Administrator', 0, 1, 25, '2009-10-08 18:40:28', '2013-09-20 11:42:05', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=1\n\n'),
+(67, 'Test1', 'test1', 'test1@irbtest.org', '657eb7d60818d99471551e6820277641:RWGXHZlIU82nOlIkiuFAnXg3JN4Z5gMx', 'Registered', 0, 0, 18, '2009-11-20 08:23:50', '2013-09-18 14:24:26', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (68, 'Test2', 'test2', 'test2@test2.org', 'b3d655949fe86a1eec3035c551c69dca:U7dE6DHQtVb9BVoEQ6MP5saZUCQ37SMp', 'Registered', 0, 0, 18, '2009-11-20 08:24:22', '2011-12-02 09:48:24', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (69, 'Test3', 'test3', 'test3@irbtest.org', '285424df591a08797fc1c5b5577cb4c5:mPTmxYUeCVI0HtFxAtZTQpuyn3TMShzj', 'Registered', 0, 0, 18, '2009-11-20 08:24:48', '2011-10-24 10:16:22', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(70, 'Jordi Casanova', 'jcasanova', 'jcasanova@mail.com', '86ee56518f0cf3de094dd5aa7f228f5c:7sMs7IYorGdflpBs7guJVX2BhjWFI8uM', 'Registered', 0, 0, 18, '2009-12-01 05:48:31', '2009-12-18 16:29:48', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(71, 'cgonzalez', 'cgonzalez', 'cgonzalez@mail.com', '2703e64a467a37ce5d618f51ab607dcc:rukcA9qJACxkA6DftZW6RmGd5uHqVw0L', 'Registered', 0, 0, 18, '2009-12-01 05:49:12', '2009-12-03 16:24:41', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(72, 'Roberto Bartolomé', 'rbartolome', 'bartolome@irbbarcelona.org', 'cbbcdcde88a9b463be34819693f121bd:WHjGlwcuk9pPKsQAx69pySoRVIV4zHqZ', 'Registered', 0, 0, 18, '2009-12-04 09:53:14', '2011-12-23 12:15:57', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(73, 'Roberto', 'roberto', 'r@mail.net', '25f4b575ec1b73b8554397a584f9fb67:zsSQ8LQjQzMDrHTHIGuyEGod6JhVQ3aI', 'Registered', 0, 0, 18, '2010-03-18 11:07:56', '2010-04-06 14:49:06', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(74, 'phdadmin', 'phdadmin', 'phdadmin@mail.com', '6c96a2c681440bec1814f340ae847059:csln82kNlwBewxBAnPzrwxPjyXNkC156', 'Registered', 0, 0, 18, '2010-04-06 05:07:13', '2013-02-08 09:19:45', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
+(74, 'phdadmin', 'phdadmin', 'phdadmin@mail.com', '6c96a2c681440bec1814f340ae847059:csln82kNlwBewxBAnPzrwxPjyXNkC156', 'Registered', 0, 0, 18, '2010-04-06 05:07:13', '2013-09-18 14:24:32', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (75, 'phdadmin2', 'phdadmin2', 'phdadmin2@mail.com', '0f62e600bba6fef434b26cfa90194ee6:DoFEvP4v3QSanuwjzSGbyuc5Ey3Z2vu2', 'Registered', 0, 0, 18, '2010-04-06 05:07:57', '2010-05-27 16:29:10', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (76, 'cadb', 'cadb', 'cadb@mail.com', 'cb1f2147b10d5817a423792a44c31c43:kJ3G4OIRxYAnls5RqPqqTpM75SOfQnbM', 'Registered', 0, 0, 18, '2010-04-06 05:08:26', '2011-12-01 10:25:50', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (77, 'mmp', 'mmp', 'mmp@mail.com', '2d091d8fff455389b8e4dba924750ca1:BgLTue11ggn4qhojZAVNt9iAoYaNEpAL', 'Registered', 0, 0, 18, '2010-04-06 05:09:02', '2011-02-16 06:00:43', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (78, 'onco', 'onco', 'onco@mail.com', '238fa4e127031f75c462ba02cdd27d20:K55mwSoV2Hqm77ruiftLzWktRBsPOhh6', 'Registered', 0, 0, 18, '2010-04-06 05:09:36', '2010-05-12 17:01:36', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (79, 'camp', 'camp', 'camp@mail.com', '0b81888da2cfe7b581791949e97a3691:1rQihKd1nuvgUVSItLQuAn15vzDACxj7', 'Registered', 0, 0, 18, '2010-04-06 05:10:03', '2010-07-07 15:17:04', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(80, 'sacb', 'sacb', 'sacb@mail.com', 'a0b4bf5062cff3748a2f12b475f741ad:B31Cvqihnh8fZrjmWlFmqZZPs0Am4hMq', 'Registered', 0, 0, 18, '2010-04-06 05:10:45', '2010-04-19 05:20:53', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(81, 'com1', 'com1', 'com1@mail.com', '5bd35d03705c5dd7fefb29938caebd15:Ij2cb8v4PLqFeN7kA5qv2CEyWdg2yoCk', 'Registered', 0, 0, 18, '2010-04-09 16:41:06', '2011-12-02 10:21:20', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(82, 'com2', 'com2', 'com2@mail.com', '00605168669e7fca88618041373dc392:cT0C5mSKiKAXAYg7whgAx6IZLbLyZ7UF', 'Registered', 0, 0, 18, '2010-04-09 16:41:21', '2010-07-08 15:14:48', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(83, 'pepelu', 'pepelu', 'pepelu@mail.com', 'e405132fe3e9b311f86dfaf9e4c94b8d:hQn5EyG3PVGON6B8fY3R6HfZBuDiXLcu', 'Registered', 0, 0, 18, '2010-04-13 13:55:33', '0000-00-00 00:00:00', '1f44995d09c168f8f8fa88422a0c7b7d', '\n'),
-(84, 'test11', 'test11', 'test11@gmail.com', 'fff825594b930ba8a39dc591965ebb8e:gJ1e5rJJCq3uKyOB2phDcprNTpK8FOGw', 'Registered', 0, 0, 18, '2010-06-15 07:55:33', '2010-06-15 08:01:45', '', '\n'),
-(85, 'ccaelles', 'ccaelles', 'mail@mail.com', '479df72c8b26954b384ec1f59ad06504:8v5Kitpra4E1WJ07u5SOKaFrd2w0qua4', 'Registered', 0, 0, 18, '2010-06-17 16:40:15', '2010-07-26 15:17:32', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(86, 'acelada', 'acelada', 'a@mail.com', '0c420e71428c3e4bcbf87f083294c4a3:ZcmNNrW5P8oGIm30gb6SkCYK0BtRl8p6', 'Registered', 0, 0, 18, '2010-06-17 16:40:37', '2010-07-26 15:15:57', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(87, 'Clara Caminal', 'ccaminal', 'ccaminal@mail.com', '12db9e4322094fbf44c6df102e3d6fec:pKC3k29TeartysjhCC2B62Wx7RRM2KZQ', 'Registered', 0, 0, 18, '2010-08-23 14:32:33', '2010-08-23 14:34:15', '', 'language=\ntimezone=0\n\n'),
-(88, 'Cristina Horcajada', 'chorcajada', 'chorcajada@mail.com', 'e204997cb036a3a85bdf33b966411efd:c3cwEEbPP8XGSLIO3iRkVzhsIzLcCZIk', 'Registered', 0, 0, 18, '2010-08-23 14:33:23', '2010-08-23 14:56:39', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(89, 'flozano', 'flozano', 'flozano@mail.com', 'b4eae9c8278d088fec267c58d78c3197:jiQePuhBDvDuHDj4DnOnpTZCTCIFrLfh', 'Registered', 0, 0, 18, '2011-02-10 13:48:53', '2011-02-10 13:52:56', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=1\n\n'),
-(90, 'Test5', 'test5', 'test5@gmail.com', '170c8ac47bf15e73499f50ff7e77e6cc:Ze8O3PHn41stUCCDQJXosHGLNLYCVCXS', 'Registered', 0, 0, 18, '2011-09-20 13:31:49', '2011-09-30 09:20:06', '', '\n');
+(80, 'sacb', 'sacb', 'sacb@mail.com', 'a0b4bf5062cff3748a2f12b475f741ad:B31Cvqihnh8fZrjmWlFmqZZPs0Am4hMq', 'Registered', 0, 0, 18, '2010-04-06 05:10:45', '2010-04-19 05:20:53', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n');
 
 -- --------------------------------------------------------
 
