@@ -84,7 +84,29 @@ class HTML_massmail
 						<?php echo $lists['gid']; ?>
 					</td>
 				</tr>
-
+                                
+				<tr>
+			       <td>
+							<label title="<?php echo JText::_( 'SELECT_STATUS' ); ?>">
+									<?php echo JText::_( 'SELECT_STATUS' ); ?>:
+							</label>
+					</td>
+					<td>
+<?php
+                global $mainframe;
+        	$db =& JFactory::getDBO();
+		$query = 'SELECT s.id AS value, s.description AS text'
+		. ' FROM `#__phd_status` AS s'
+		. ' ORDER BY s.order'
+		;
+		$db->setQuery($query);
+		$statuslist[] = JHTML::_('select.option',  '', JText::_( '- Select Status -' ), 'value', 'text');
+		$statuslist = array_merge( $statuslist, $db->loadObjectList() );
+		echo JHTML::_('select.genericlist', $statuslist, 'status_id', '', 'value', 'text', 'status_id' );
+?>
+					</td>
+				</tr>                                
+                                
 				<tr>
 			       <td class="key">
 							<label for="mm_bcc" title="<?php echo JText::_( 'Send as Blind Carbon Copy' ); ?>">
