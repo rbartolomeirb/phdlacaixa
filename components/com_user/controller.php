@@ -16,6 +16,8 @@
 defined('_JEXEC') or die( 'Restricted access' );
 
 jimport('joomla.application.component.controller');
+jimport('joomla.error.log' );
+
 
 /**
  * User Component Controller
@@ -145,6 +147,16 @@ class UserController extends JController
 
 		if(!JError::isError($error))
 		{
+
+                        //LOG all logins
+                        $user     =& JFactory::getUser();
+                        $options = array('format' => "{DATE}\t{IP}\t{NAME}");
+                        $ip_address = $_SERVER['REMOTE_ADDR'];
+                        $log_filename= "login-".date( 'M-Y').".log";
+                        $log = & JLog::getInstance($log_filename, $options);
+                        $log->addEntry(array("Date" => date('d-m-Y'),"IP" => $ip_address,"Name"=>$user->name));
+                        //END LOG
+                        //
 			// Redirect if the return url is not registration or login
 			if ( ! $return ) {
 				$return	= 'index.php?option=com_user';
