@@ -47,11 +47,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			</th>
 			<th height="20" scope='col'><?php echo JHTML::_('grid.sort', 'Lastname', 'lastname', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 			</th>
-			<th width="15%" height="20" scope='col'><?php echo JHTML::_('grid.sort', 'Status', 'status', $this->lists['order_Dir'], $this->lists['order'] ); ?>
+			<th width="10%" height="20" scope='col'><?php echo JHTML::_('grid.sort', 'Status', 'status', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 			</th>
 			<th width="15%" height="20" scope='col'><?php echo JHTML::_('grid.sort', 'Submit date', 'submit_date', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 			</th>
-			<th width="15" scope='col'></th>
+			<th width="20" scope='col'></th>
 		</tr>
 	</thead>
 	<?php
@@ -62,6 +62,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		$link_readonly = JRoute::_( 'index.php?option=com_phd&view=applicant&id=' . $item->id .'&readonly=true' );
 		$del_link = JRoute::_( 'index.php?option=com_phd&controller=applicants&task=delete&id=' . $item->id );
 		$pdf_link = JRoute::_( 'index.php?option=com_phd&view=applicant&format=pdf&tmpl=component&id=' . $item->id );
+		$zip_link = JRoute::_( 'index.php?option=com_phd&controller=applicant&task=create_zip&id=' . $item->id );                
 		?>
 	<tbody>
 		<tr class="sectiontableentry1">
@@ -71,7 +72,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			<td height="20"><?php echo $this->escape($item->lastname); ?></td>
 			<td height="20"><?php echo $this->escape($item->status); ?></td>
 			<td height="20"><?php echo $this->escape($item->submit_date); ?></td>
-			<td valign="top" width="90" align="center"><?php if ($this->iamadministrator) : ?>
+			<td valign="top" width="120" align="center"><?php if ($this->iamadministrator) : ?>
 			<div class="buttonheading"><span> <a href='<?php echo $del_link; ?>'
 				onClick="return confirm('<?php echo JText::_( 'ARE_YOU_SURE' ); ?>');"
 				title="<?php echo JText::_( 'DELETE' ); ?>"> <img border='0'
@@ -93,6 +94,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				href='<?php echo $link_readonly; ?>'
 				title="<?php echo JText::_( 'VIEW' ); ?>"> <img border='0'
 				src='./components/com_phd/assets/Info.png'> </a> </span></div>
+			<div class="buttonheading"><span> <a
+				href='<?php echo $zip_link; ?>'
+				title="<?php echo JText::_( 'ZIP_DOCS' ); ?>"> <img border='0'
+				src='./components/com_phd/assets/zip_icon.png'> </a> </span></div>                            
 				<?php endif; ?></td>
 		</tr>
 	</tbody>
