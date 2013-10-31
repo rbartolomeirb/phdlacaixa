@@ -409,20 +409,26 @@ if ($this->rights == 'write'):
 
 				<?php
     if ($this->applicant->career_breaks_filename):
-?> <?php
+?> 
+    <a href='<?php echo $_SERVER['PHP_SELF'];
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $this->applicant->career_breaks_filename; ?>' target="_blank"><?php echo JText::_('LABEL_DOWNLOAD'); ?></a>
+    <?php /*
         $filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->career_breaks_filename);
 ?> <a href='<?php
         echo $filepath;
 ?>' style="color: blue;"
 				target="_blank"><?php
         echo JText::_('LABEL_DOWNLOAD');
-?></a> <?php
+?></a> <?php */
     endif;
 ?>
 				<?php
 else:
-    if ($this->applicant->career_breaks_filename):
-        $filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->career_breaks_filename);
+    if ($this->applicant->career_breaks_filename): ?>
+<a href='<?php echo $_SERVER['PHP_SELF'];
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $this->applicant->career_breaks_filename; ?>' target="_blank"><?php echo $this->applicant->career_breaks_filename; ?></a>
+<?php
+        /*$filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->career_breaks_filename);
 ?>
 			<a href='<?php
         echo $filepath;
@@ -430,7 +436,9 @@ else:
 				target="_blank"><?php
         echo $this->applicant->career_breaks_filename;
 ?></a>
-				<?php
+				<?php*/
+        
+        
     endif;
 ?> <?php
 endif;
@@ -530,6 +538,9 @@ if ($this->params->get('phdConfig_Application') == 1) {
 			<th width='40%' class="white"><?php
         echo JText::_('UNIVERSITY');
 ?></th>
+                  	<th width='10%' class="white"><?php
+        echo JText::_('ONGOING');
+?></th>
 			<?php
         if (($this->rights == 'write')):
 ?>
@@ -551,6 +562,9 @@ if ($this->params->get('phdConfig_Application') == 1) {
 		<td><?php
             echo $academic_data->university;
 ?></td>
+<td><?php
+            echo $academic_data->ongoing;
+?></td>                
 		<?php
             if (($this->rights == 'write')):
 ?>
@@ -629,6 +643,20 @@ if ($this->params->get('phdConfig_Application') == 1) {
 ?>
 			</td>
 		</tr>
+		<tr class="sectiontableentry1">
+			<td><?php
+        echo JText::_('ONGOING');
+?>: <?php
+        echo ($this->rights == 'read') ? "" : "<span style='color: red;'>*</span>";
+?>
+			</td>
+			<td><?php
+        if ($this->rights == 'write'):
+?> <input type="checkbox" name="ongoing" value="Yes" /> <?php
+        endif;
+?>
+			</td>
+		</tr>                
 		<?php
         if (($this->rights == 'write')):
 ?>
@@ -1488,13 +1516,16 @@ if (count($this->applicant->files) > 0):
 		<td><?php
         echo $file->doc_type;
 ?></td>
-		<td><a
+		<td><!--a
 			href="<?php
-        echo JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $file->filename);
+        //echo JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $file->filename);
 ?>"
 			style="color: blue;" target="_blank"><?php
-        echo $file->filename;
-?></a>
+        //echo $file->filename;
+?></a-->
+<a href='<?php echo $_SERVER['PHP_SELF'];
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $file->filename; ?>' target="_blank"><?php echo $file->filename; ?></a>
+
 		</td>
 		<td><?php
         echo $file->description;
@@ -1729,14 +1760,19 @@ if (count($this->applicant->referees) > 0):
 ?>
 		<td><?php
             if ($referee->filename):
-?> <a
+/*?> <a
 			href="<?php
-                echo JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $referee->filename);
+                echo JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->directory . DS . $referee->filename);
 ?>"
 			style="color: blue;" target="_blank"><?php
                 echo $referee->filename;
 ?></a>
-			<?php
+			<?php*/
+                ?>
+<a href='<?php echo $_SERVER['PHP_SELF'];
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php $referee->filename; ?>' target="_blank"><?php echo $referee->filename; ?></a>                    
+                <?php
+                
             endif;
 ?> <!--
 		<?php

@@ -339,6 +339,9 @@ class PhdModelApplicant extends JModel
 			$applicant->indian_info = null;
 			$applicant->scientific_discipline_id = null;
 			// 2012-11-28 Roberto. Fin de cambio
+
+                        // 2013-11-22 SIBEOS cambio
+                        $applicant->directory = null;
 					
 			$this->_data = $applicant;
 
@@ -556,15 +559,22 @@ class PhdModelApplicant extends JModel
 		global $mainframe;
 
 		$params =& $mainframe->getParams();
-		$phdConfig_DocsPath = $params->get('phdConfig_DocsPath');
-
+		$phdConfig_DocsPath = $params->get('phdConfig_DocsPath');              
+                
 		$query = 'SELECT * FROM #__phd_docs'
 		. ' WHERE id = ' . $id
 		;
 		$this->_db->setQuery( $query );
 		$file_details = $this->_db->loadObject();
 
-		$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$file_details->applicant_id.DS.$file_details->filename);
+                $model =& JModel::getInstance( 'applicant', 'phdmodel' );
+                $model->setId( $file_details->applicant_id );
+                $applicant =& $model->getData();                 
+                
+		$filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file_details->filename);
+                
+                echo $filepath; 
+                
 		if (!JFile::delete($filepath)) {
 			//echo JText::_('ERROR_DELETING_FILE');
 			return false;

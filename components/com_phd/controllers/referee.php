@@ -32,7 +32,7 @@ class PhdControllerReferee extends JController
 	function upload_file() {
 		global $mainframe;
 		$params =& $mainframe->getParams();
-
+                
 		$phdConfig_DocsPath = $params->get('phdConfig_DocsPath');
 
 		//get data from the request
@@ -40,7 +40,12 @@ class PhdControllerReferee extends JController
 
 		$file = JRequest::getVar('uploaded_file', '', 'FILES', 'array');
 		$file['name']  = JFile::makeSafe($file['name']);
-		$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$post['id'].DS.$file['name']);
+                
+                $model =& $this->getModel('applicant');
+		$model->setId($post['id']);
+		$applicant =& $model->getData(); 
+
+		$filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file['name']);
 
 		if (JFile::exists($filepath)) {
 			echo JText::_('FILE_EXISTS');
@@ -52,7 +57,7 @@ class PhdControllerReferee extends JController
 			return;
 		}
 
-		$model =& $this->getModel('applicant');
+		//$model =& $this->getModel('applicant');
 		$data['filename'] = $file['name'];
 		$data['id'] = $post['referee_id'];
 		$model->saveReferee($data);
