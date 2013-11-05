@@ -60,6 +60,9 @@ class TablePersonaldata extends JTable {
 	var $indian_info = null;
 	var $scientific_discipline_id = null;
 	// 2012-11-28 Roberto. Fin de cambio
+
+        // 2013-11-22 SIBEOS cambio
+        var $directory = null;
 	
 
 	/**

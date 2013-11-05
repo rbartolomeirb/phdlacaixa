@@ -30,6 +30,8 @@ class TableDegree extends JTable {
 	var $end_date = null;
 	var $country_id = null;
 	var $director_name = null;
+        // 2013-11-22 SIBEOS cambio
+        var $ongoing = null;        
 
 	/**
 	 * Constructor
