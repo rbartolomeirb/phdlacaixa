@@ -13,7 +13,7 @@
 			label="Closing date time" description="Closing date time" size="40" />
 		<param name="phdConfig_LimitAge" type="text" default="30" label="Limit age"
 			description="Limit age" size="2" />
-		<param name="phdConfig_DocsPath" type="text" default="/docs_phd/"
+		<param name="phdConfig_DocsPath" type="text" default="/var/data/docs_phd/"
 			label="Documents path" description="Documents path" />
 		<param name="phdConfig_MaxNumberOfFiles" type="text" default="5"
 			label="Max number of files" description="Max number of files" size="2" />
