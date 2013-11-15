@@ -562,8 +562,8 @@ if ($this->params->get('phdConfig_Application') == 1) {
 		<td><?php
             echo $academic_data->university;
 ?></td>
-<td><?php
-            echo $academic_data->ongoing;
+<td align='center'><?php
+            echo ($academic_data->ongoing)?"<img src='administrator/images/tick.png' title='".JText::_('ONGOING')."'>":'';
 ?></td>                
 		<?php
             if (($this->rights == 'write')):
