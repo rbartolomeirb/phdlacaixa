@@ -1117,7 +1117,7 @@ class PhdControllerApplicant extends JController
                 } elseif (is_dir($filePath)) { 
                   // Add sub-directory. 
                   $zipFile->addEmptyDir($localPath); 
-                  self::folderToZip($filePath, $zipFile, $exclusiveLength); 
+                  //self::folderToZip($filePath, $zipFile, $exclusiveLength); 
                 } 
               } 
             } 
