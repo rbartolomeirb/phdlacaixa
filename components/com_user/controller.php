@@ -150,11 +150,11 @@ class UserController extends JController
 
                         //LOG all logins
                         $user     =& JFactory::getUser();
-                        $options = array('format' => "{DATE}\t{IP}\t{NAME}");
+                        $options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}");
                         $ip_address = $_SERVER['REMOTE_ADDR'];
                         $log_filename= "login-".date( 'M-Y').".log";
                         $log = & JLog::getInstance($log_filename, $options);
-                        $log->addEntry(array("Date" => date('d-m-Y'),"IP" => $ip_address,"Name"=>$user->name));
+                        $log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name));
                         //END LOG
                         //
 			// Redirect if the return url is not registration or login
