@@ -86,7 +86,7 @@ class HTML_massmail
 				</tr>
                                 
 				<tr>
-			       <td>
+			       <td valign="top" class="key">
 							<label title="<?php echo JText::_( 'SELECT_STATUS' ); ?>">
 									<?php echo JText::_( 'SELECT_STATUS' ); ?>:
 							</label>
