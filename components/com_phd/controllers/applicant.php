@@ -1043,14 +1043,18 @@ class PhdControllerApplicant extends JController
             $model->setId( $person );
             $applicant =& $model->getData();
 
-            if (!($this->iamadministrator || $this->iamgroupleader || $this->iamcommittee || ($user->username == $applicant->user_username))):
+            echo 'Administrator'.$iamadministrator.', Group Leader'.$iamgroupleader.', Committe'.$iamcommittee.', User'.$applicant->user_username."=".$user->username;
+            
+            if (!($iamadministrator || $iamgroupleader || $iamcommittee || ($user->username == $applicant->user_username))):
                 echo JText::_( 'ALERTNOTAUTH' );
 		return;
             endif;            
             
             $path = $phdConfig_DocsPath."/".$applicant->directory."/".$filename;            
             
-            //LOG all logins
+            echo $path;
+            
+            //LOG all downloads
             $user 	=& JFactory::getUser();
             $options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}\t{FILENAME}\t{APPLICANT}");
             $ip_address = $_SERVER['REMOTE_ADDR'];
@@ -1090,13 +1094,15 @@ class PhdControllerApplicant extends JController
           
             //$outZipPath = $phdConfig_DocsPath."/".$applicant_id."/".$applicant_id.'.zip';
             $outZipPath =  JPATH_ROOT . '/tmp/'.$applicant->directory.'.zip';
-            //echo $outZipPath;
-            
+
+            echo 'sourcePath:'.$sourcePath.',outPath:'.$outZipPath;
 
             $pathInfo = pathInfo($sourcePath); 
             $parentPath = $pathInfo['dirname']; 
             $dirName = $pathInfo['basename']; 
 
+            echo '<br>pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName;
+            
             $z = new ZipArchive(); 
             $z->open($outZipPath, ZIPARCHIVE::CREATE); 
             $z->addEmptyDir($dirName); 
