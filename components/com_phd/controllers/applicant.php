@@ -1043,7 +1043,7 @@ class PhdControllerApplicant extends JController
             $model->setId( $person );
             $applicant =& $model->getData();
 
-            echo 'Administrator'.$iamadministrator.', Group Leader'.$iamgroupleader.', Committe'.$iamcommittee.', User'.$applicant->user_username."=".$user->username;
+            //echo 'Administrator'.$iamadministrator.', Group Leader'.$iamgroupleader.', Committe'.$iamcommittee.', User'.$applicant->user_username."=".$user->username;
             
             if (!($iamadministrator || $iamgroupleader || $iamcommittee || ($user->username == $applicant->user_username))):
                 echo JText::_( 'ALERTNOTAUTH' );
@@ -1052,7 +1052,7 @@ class PhdControllerApplicant extends JController
             
             $path = $phdConfig_DocsPath."/".$applicant->directory."/".$filename;            
             
-            echo $path;
+            //echo $path;
             
             //LOG all downloads
             $user 	=& JFactory::getUser();
@@ -1101,7 +1101,7 @@ class PhdControllerApplicant extends JController
             $parentPath = $pathInfo['dirname']; 
             $dirName = $pathInfo['basename']; 
 
-            echo '<br>pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName;
+            echo '<br>pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName;die;
             
             $z = new ZipArchive(); 
             $z->open($outZipPath, ZIPARCHIVE::CREATE); 
