@@ -1124,8 +1124,8 @@ class PhdControllerApplicant extends JController
             $parentPath = $pathInfo['dirname']; 
             $dirName = $pathInfo['basename']; 
 
-            $log = &JLog::getInstance('create_zip.log');
-            $log->addEntry(array('comment' => 'sourcePath:'.$sourcePath.',outPath:'
+            $log_zip = &JLog::getInstance('create_zip.log');
+            $log_zip->addEntry(array('comment' => 'sourcePath:'.$sourcePath.',outPath:'
                 .$outZipPath.'<br>pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName.'<br>'));            
             
             $z = new ZipArchive(); 
