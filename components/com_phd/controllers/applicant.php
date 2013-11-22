@@ -1174,7 +1174,7 @@ class PhdControllerApplicant extends JController
             $log_zip->addEntry(array('comment' =>'Read from: '.$outZipPath));            
             
             header('Content-Description: File Transfer');
-            header('Content-Type: application/x-zip-compressed');           
+            header('Content-Type: application/zip');           
             header('Content-Disposition: attachment; filename='.$filename);
             header('Content-Transfer-Encoding: binary');
             header('Expires: 0');
