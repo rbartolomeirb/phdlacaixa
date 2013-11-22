@@ -1182,7 +1182,8 @@ class PhdControllerApplicant extends JController
             header('Pragma: public');
             header('Content-Length: ' . filesize($outZipPath));
             ob_clean();
-            readfile($outZipPath); 
+            readfile($outZipPath);
+            exit;
             //@unlink($outZipPath);
    
             /*header("Content-type: application/zip; filename=".$applicant->directory.".zip" ); 
