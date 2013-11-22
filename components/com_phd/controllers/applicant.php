@@ -1042,8 +1042,6 @@ class PhdControllerApplicant extends JController
             $model =& JModel::getInstance( 'applicant', 'phdmodel' );
             $model->setId( $person );
             $applicant =& $model->getData();
-
-            //echo 'Administrator'.$iamadministrator.', Group Leader'.$iamgroupleader.', Committe'.$iamcommittee.', User'.$applicant->user_username."=".$user->username;
             
             if (!($iamadministrator || $iamgroupleader || $iamcommittee || ($user->username == $applicant->user_username))):
                 echo JText::_( 'ALERTNOTAUTH' );
@@ -1052,7 +1050,20 @@ class PhdControllerApplicant extends JController
             
             $path = $phdConfig_DocsPath."/".$applicant->directory."/".$filename;            
             
-            //echo $path;
+            $file_extension = strtolower(substr(strrchr($filename,"."),1));
+
+            //This will set the Content-Type to the appropriate setting for the file
+            switch( $file_extension ) {
+              case "pdf": $ctype="application/pdf"; break;
+              case "doc": $ctype="application/msword"; break;
+
+              //The following are for extensions that shouldn't be downloaded (sensitive stuff, like php files)
+              case "php":
+              case "htm":
+              case "html": die("<b>Cannot be used for ". $file_extension ." files!</b>"); break;
+
+              default: $ctype="application/force-download";
+            }            
             
             //LOG all downloads
             $user 	=& JFactory::getUser();
@@ -1063,11 +1074,24 @@ class PhdControllerApplicant extends JController
             //$log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$filename,"Applicant"=>$applicant->lastname.', '.$applicant->firstname));
             $log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$filename,"Applicant"=>$applicant->firstname.' '.$applicant->lastname));
             //END LOG
-                        
-            header("Content-type: application/octet-stream"); 
-            header("Content-Disposition: attachment; filename=$filename"); 
+            
+            //Begin writing headers
+            header("Pragma: public");
+            header("Expires: 0");
+            header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+            header("Cache-Control: public");
+            header("Content-Description: File Transfer");
+
+            //Use the switch-generated Content-Type
+            header("Content-Type: $ctype");
+
+            //Force the download
+            $header="Content-Disposition: attachment; filename=".$filename.";";
+            header($header );
+            header("Content-Transfer-Encoding: binary");
             header("Content-Length: ".filesize($path));
-            readfile("$path");
+            @readfile($path);
+            exit;            
 
         }        
 
@@ -1096,13 +1120,13 @@ class PhdControllerApplicant extends JController
             //$outZipPath = $phdConfig_DocsPath."/".$applicant_id."/".$applicant_id.'.zip';
             $outZipPath =  JPATH_ROOT . '/tmp/'.$applicant->directory.'.zip';
 
-            echo 'sourcePath:'.$sourcePath.',outPath:'.$outZipPath;
-
             $pathInfo = pathInfo($sourcePath); 
             $parentPath = $pathInfo['dirname']; 
             $dirName = $pathInfo['basename']; 
 
-            echo '<br>pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName;die;
+            $log = &JLog::getInstance('create_zip.log');
+            $log->addEntry(array('comment' => 'sourcePath:'.$sourcePath.',outPath:'
+                .$outZipPath.'<br>pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName.'<br>'));            
             
             $z = new ZipArchive(); 
             $z->open($outZipPath, ZIPARCHIVE::CREATE); 
@@ -1150,8 +1174,7 @@ class PhdControllerApplicant extends JController
             header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
             header('Pragma: public');
             header('Content-Length: ' . filesize($outZipPath));
-//            ob_clean();
-//            flush();
+            ob_clean();
             readfile($outZipPath); 
             @unlink($outZipPath);
    
