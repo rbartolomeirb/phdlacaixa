@@ -1126,7 +1126,7 @@ class PhdControllerApplicant extends JController
 
             $log_zip = &JLog::getInstance('create_zip.log');
             $log_zip->addEntry(array('comment' => 'sourcePath:'.$sourcePath.',outPath:'
-                .$outZipPath.'<br>pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName.'<br>'));            
+                .$outZipPath.'pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName));            
             
             $z = new ZipArchive(); 
             $z->open($outZipPath, ZIPARCHIVE::CREATE); 
@@ -1138,13 +1138,15 @@ class PhdControllerApplicant extends JController
             $zipFile= $z;
 
             $handle = opendir($folder); 
+            $log_zip->addEntry(array('comment' =>'Starting ZIP'));
             while (false !== $f = readdir($handle)) { 
               if ($f != '.' && $f != '..') { 
                 $filePath = "$folder/$f"; 
                 // Remove prefix from file path before add to zip. 
                 $localPath = substr($filePath, $exclusiveLength); 
                 if (is_file($filePath)) { 
-                  $zipFile->addFile($filePath, $localPath); 
+                  $zipFile->addFile($filePath, $localPath);
+                  $log_zip->addEntry(array('comment' =>'Added file '.$localPath.' to '.$filePath));
                 } elseif (is_dir($filePath)) { 
                   // Add sub-directory. 
                   $zipFile->addEmptyDir($localPath); 
@@ -1152,6 +1154,7 @@ class PhdControllerApplicant extends JController
                 } 
               } 
             } 
+            $log_zip->addEntry(array('comment' =>'Ending ZIP'));
             closedir($handle);     
 
             $z->close();             
@@ -1166,6 +1169,10 @@ class PhdControllerApplicant extends JController
             //END LOG
 
             $filename = $applicant->directory.'.zip';
+            $log_zip->addEntry(array('comment' =>'Filename: '.$filename));    
+            $log_zip->addEntry(array('comment' =>'Filesize: '.filesize($outZipPath)));            
+            $log_zip->addEntry(array('comment' =>'Read from: '.$outZipPath));            
+            
             header('Content-Description: File Transfer');
             header('Content-Type: application/x-zip-compressed');           
             header('Content-Disposition: attachment; filename='.$filename);
@@ -1176,7 +1183,7 @@ class PhdControllerApplicant extends JController
             header('Content-Length: ' . filesize($outZipPath));
             ob_clean();
             readfile($outZipPath); 
-            @unlink($outZipPath);
+            //@unlink($outZipPath);
    
             /*header("Content-type: application/zip; filename=".$applicant->directory.".zip" ); 
             header("Content-Transfer-Encoding: base64"); 
