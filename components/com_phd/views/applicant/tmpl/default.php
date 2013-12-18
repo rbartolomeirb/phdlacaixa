@@ -523,9 +523,7 @@ endif;
 		<?php
 if ($this->params->get('phdConfig_Application') == 1) {
 ?>
-<!-- PhD information -->
-			
-<br>
+<!-- PhD information -->			
 			<?php
     if (count($this->applicant->academic_data_academic) > 0):
 ?>
