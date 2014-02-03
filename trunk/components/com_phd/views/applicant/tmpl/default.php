@@ -1768,7 +1768,7 @@ if (count($this->applicant->referees) > 0):
 			<?php*/
                 ?>
 <a href='<?php echo $_SERVER['PHP_SELF'];
-?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php $referee->filename; ?>' target="_blank"><?php echo $referee->filename; ?></a>                    
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $referee->filename; ?>' target="_blank"><?php echo $referee->filename; ?></a>                    
                 <?php
                 
             endif;
