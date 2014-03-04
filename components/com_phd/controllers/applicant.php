@@ -547,7 +547,7 @@ class PhdControllerApplicant extends JController
 		}
 
 		// upload the file
-		if (isset($file['name']))
+		if ((isset($file['name'])) && (!empty($file['name'])))
 		{
 			$file['name']  = JFile::makeSafe($file['name']);
 			$filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file['name']);
@@ -661,7 +661,7 @@ class PhdControllerApplicant extends JController
 		$model =& $this->getModel('applicant');
 		$applicant_id = $get['id'];
 
-		$store = $model->deleteReferee($get['referee_id']);
+		$store = $model->deleteReferee($get['referee_id'], $applicant_id);
 
 		JRequest::setVar('view', 'applicant' );
 		JRequest::setVar('id', $applicant_id );
