@@ -83,7 +83,8 @@ class PhdViewApplicants extends JView
 			$worksheet->write(0, 14, JText::_( 'Applicant contacted date' ));
 			$worksheet->write(0, 15, JText::_( 'Indian?' ));
 			$worksheet->write(0, 16, JText::_( 'Indian info' ));
-			$worksheet->write(0, 17, JText::_( 'Scientific discipline' ));
+			$worksheet->write(0, 17, JText::_( 'Gender' ));
+			$worksheet->write(0, 18, JText::_( 'Scientific discipline' ));
 				
 			$i = 2; // line index
 			foreach( $rows as $row )
@@ -149,7 +150,8 @@ class PhdViewApplicants extends JView
 				$worksheet->write( $i, 14, $applicant_contacted_date->toFormat('%d/%m/%Y') );
 				$worksheet->write( $i, 15, (($row->indian)? 'Yes' : 'No' ));
 				$worksheet->write( $i, 16, $row->indian_info );
-				$worksheet->write( $i, 17, $row->scientific_discipline );
+				$worksheet->write( $i, 17, $row->gender );
+				$worksheet->write( $i, 18, $row->scientific_discipline );
 				
 				$i++;				
 			}
