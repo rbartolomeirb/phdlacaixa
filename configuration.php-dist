@@ -42,8 +42,8 @@ class JConfig {
 	var $smtpauth = '1';
 	var $smtpsecure = 'tls';
 	var $smtpport = '465';
-	var $smtpuser = 'sender@irbbarcelona.org';
-	var $smtppass = '2452H371';
+	var $smtpuser = 'asdfasdf@irbbarcelona.org';
+	var $smtppass = 'asdfasdf';
 	var $smtphost = 'smtp.gmail.com';
 	var $MetaAuthor = '1';
 	var $MetaTitle = '1';
