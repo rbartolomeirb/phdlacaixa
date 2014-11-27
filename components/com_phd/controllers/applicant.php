@@ -1065,15 +1065,14 @@ class PhdControllerApplicant extends JController
               default: $ctype="application/force-download";
             }            
             
-            //LOG all downloads
-            $user 	=& JFactory::getUser();
+            // log all downloads
+            $user =& JFactory::getUser();
             $options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}\t{FILENAME}\t{APPLICANT}");
             $ip_address = $_SERVER['REMOTE_ADDR'];
             $log_filename= "file_access-".date( 'M-Y').".log";
             $log = & JLog::getInstance($log_filename, $options);
-            //$log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$filename,"Applicant"=>$applicant->lastname.', '.$applicant->firstname));
             $log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$filename,"Applicant"=>$applicant->firstname.' '.$applicant->lastname));
-            //END LOG
+            // end log
             
             //Begin writing headers
             header("Pragma: public");
@@ -1159,14 +1158,14 @@ class PhdControllerApplicant extends JController
 
             $z->close();             
                 
-            //LOG all logins
+            // log all downloads
             $user 	=& JFactory::getUser();
             $options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}\t{FILENAME}\t{APPLICANT}");
             $ip_address = $_SERVER['REMOTE_ADDR'];
             $log_filename= "file_access-".date( 'M-Y').".log";
             $log = & JLog::getInstance($log_filename, $options);
             $log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$applicant->directory.'.zip',"Applicant"=>$applicant->lastname.', '.$applicant->firstname));
-            //END LOG
+            // end log
 
             $filename = $applicant->directory.'.zip';
             $log_zip->addEntry(array('comment' =>'Filename: '.$filename));    
