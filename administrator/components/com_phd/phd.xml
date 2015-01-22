@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2015-01-07</creationDate>
+	<creationDate>2015-01-22</creationDate>
 	<license>GNU/GPL</license>
-	<version>1.30</version>
-	<description>Incluyo el ticket BAQ-130840.</description>
+	<version>1.31</version>
+	<description>Añado librería PHPExcel y reescrito view de applicants para usarla.</description>
 
 	<!-- installation part -->
 	<install>
