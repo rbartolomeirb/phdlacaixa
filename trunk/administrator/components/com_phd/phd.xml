@@ -5,7 +5,7 @@
 	<creationDate>2015-01-22</creationDate>
 	<license>GNU/GPL</license>
 	<version>1.31</version>
-	<description>Añado librería PHPExcel y reescrito view de applicants para usarla.</description>
+	<description>Usando la libreria PHPExcel y reescrito view de applicants para usarla.</description>
 
 	<!-- installation part -->
 	<install>
