@@ -23,10 +23,10 @@ jimport('joomla.utilities.date');
 
 ini_set( 'display_errors', 0 );
 // the path /usr/share/php5/PEAR needed for opensuse servers
-//ini_set( 'include_path', '.:./includes:./includes/PEAR:/usr/share/php5/PEAR' );
+ini_set( 'include_path', '.:./includes' );
 
 // PEAR include for generating Excel files
-require_once( 'Spreadsheet/Excel/Writer.php' );
+require_once("PHPExcel.php");
 
 class PhdViewApplicants extends JView
 {
@@ -62,36 +62,35 @@ class PhdViewApplicants extends JView
 		if (count($rows))
 		{
 			// create excel file
-			$workbook = new Spreadsheet_Excel_Writer();
-			$workbook->send("applicants_" . date("Ymd") . ".xls");
 			
-			$worksheet =& $workbook->addWorksheet( JText::_( 'Applicants' ) );
-			$worksheet->write(0, 0, JText::_( 'Firstname' ));
-			$worksheet->write(0, 1, JText::_( 'lastname' ));
-			$worksheet->write(0, 2, JText::_( 'Country' ));
-			$worksheet->write(0, 3, JText::_( 'Email' ));
-			$worksheet->write(0, 4, JText::_( 'Birth date' ));
-			$worksheet->write(0, 5, JText::_( 'Age' ));
-			$worksheet->write(0, 6, JText::_( 'Where did you learn about us?' ));
-			$worksheet->write(0, 7, JText::_( 'Recommendation letters' ));
-			$worksheet->write(0, 8, JText::_( 'Programmes of choice' ));
-			$worksheet->write(0, 9, JText::_( 'Submit date' ));
-			$worksheet->write(0, 10, JText::_( 'Docs checked?' ));
-			$worksheet->write(0, 11, JText::_( 'Missing docs' ));
-			$worksheet->write(0, 12, JText::_( 'Academic comments' ));
-			$worksheet->write(0, 13, JText::_( 'Applicant contacted?' ));
-			$worksheet->write(0, 14, JText::_( 'Applicant contacted date' ));
-			$worksheet->write(0, 15, JText::_( 'Indian?' ));
-			$worksheet->write(0, 16, JText::_( 'Indian info' ));
-			$worksheet->write(0, 17, JText::_( 'Gender' ));
-			$worksheet->write(0, 18, JText::_( 'Scientific discipline' ));
+			$workbook = new PHPExcel();
+			$workbook->getActiveSheet()
+				->setCellValueByColumnAndRow(0, 1, JText::_( 'Firstname' ))
+				->setCellValueByColumnAndRow(1, 1, JText::_( 'lastname' ))
+				->setCellValueByColumnAndRow(2, 1, JText::_( 'Country' ))
+				->setCellValueByColumnAndRow(3, 1, JText::_( 'Email' ))
+				->setCellValueByColumnAndRow(4, 1, JText::_( 'Birth date' ))
+				->setCellValueByColumnAndRow(5, 1, JText::_( 'Age' ))
+				->setCellValueByColumnAndRow(6, 1, JText::_( 'Where did you learn about us?' ))
+				->setCellValueByColumnAndRow(7, 1, JText::_( 'Recommendation letters' ))
+				->setCellValueByColumnAndRow(8, 1, JText::_( 'Programmes of choice' ))
+				->setCellValueByColumnAndRow(9, 1, JText::_( 'Submit date' ))
+				->setCellValueByColumnAndRow(10, 1, JText::_( 'Docs checked?' ))
+				->setCellValueByColumnAndRow(11, 1, JText::_( 'Missing docs' ))
+				->setCellValueByColumnAndRow(12, 1, JText::_( 'Academic comments' ))
+				->setCellValueByColumnAndRow(13, 1, JText::_( 'Applicant contacted?' ))
+				->setCellValueByColumnAndRow(14, 1, JText::_( 'Applicant contacted date' ))
+				->setCellValueByColumnAndRow(15, 1, JText::_( 'Indian?' ))
+				->setCellValueByColumnAndRow(16, 1, JText::_( 'Indian info' ))
+				->setCellValueByColumnAndRow(17, 1, JText::_( 'Gender' ))
+				->setCellValueByColumnAndRow(18, 1, JText::_( 'Scientific discipline' ));
 				
 			$i = 2; // line index
 			foreach( $rows as $row )
 			{
 				$submit_date =& JFactory::getDate($row->submit_date);
+				$birth_date =& JFactory::getDate($row->birth_date);
 				$applicant_contacted_date =& JFactory::getDate($row->applicant_contacted_date);
-				
 				/*
 				 * 2012-12-03. Roberto. Modificado el texto que ponemos en el fichero.
 				 */
@@ -133,31 +132,48 @@ class PhdViewApplicants extends JView
 				$age = $this->calculateAge($row->birth_date);
 
 				// writing the line
-				$worksheet->write( $i, 0, $row->firstname );
-				$worksheet->write( $i, 1, $row->lastname );
-				$worksheet->write( $i, 2, $row->printable_name );
-				$worksheet->write( $i, 3, $row->email );
-				$worksheet->write( $i, 4, $row->birth_date );
-				$worksheet->write( $i, 5, $age );
-				$worksheet->write( $i, 6, $row->wheredidu );
-				$worksheet->write( $i, 7, $str_files );
-				$worksheet->write( $i, 8, $str_pro );
-				$worksheet->write( $i, 9, $submit_date->toFormat('%d/%m/%Y') );
-				$worksheet->write( $i, 10, (($row->docs_checked)? 'Yes' : 'No' ));
-				$worksheet->write( $i, 11, $row->missing_docs );
-				$worksheet->write( $i, 12, $row->academic_comments );
-				$worksheet->write( $i, 13, (($row->applicant_contacted)? 'Yes' : 'No' ));
-				$worksheet->write( $i, 14, $applicant_contacted_date->toFormat('%d/%m/%Y') );
-				$worksheet->write( $i, 15, (($row->indian)? 'Yes' : 'No' ));
-				$worksheet->write( $i, 16, $row->indian_info );
-				$worksheet->write( $i, 17, $row->gender );
-				$worksheet->write( $i, 18, $row->scientific_discipline );
+				$workbook->getActiveSheet()
+					->setCellValueByColumnAndRow( 0, $i, $row->firstname )
+					->setCellValueByColumnAndRow( 1, $i, $row->lastname )
+					->setCellValueByColumnAndRow( 2, $i, $row->printable_name )
+					->setCellValueByColumnAndRow( 3, $i, $row->email )
+					->setCellValueByColumnAndRow( 4, $i, $birth_date->toFormat('%d/%m/%Y') )
+					->setCellValueByColumnAndRow( 5, $i, $age )
+					->setCellValueByColumnAndRow( 6, $i, $row->wheredidu )
+					->setCellValueByColumnAndRow( 7, $i, $str_files )
+					->setCellValueByColumnAndRow( 8, $i, $str_pro )
+					->setCellValueByColumnAndRow( 9, $i, $submit_date->toFormat('%d/%m/%Y') )
+					->setCellValueByColumnAndRow( 10, $i, (($row->docs_checked)? 'Yes' : 'No' ))
+					->setCellValueByColumnAndRow( 11, $i, $row->missing_docs )
+					->setCellValueByColumnAndRow( 12, $i, $row->academic_comments )
+					->setCellValueByColumnAndRow( 13, $i, (($row->applicant_contacted)? 'Yes' : 'No' ))
+					->setCellValueByColumnAndRow( 14, $i, $applicant_contacted_date->toFormat('%d/%m/%Y') )
+					->setCellValueByColumnAndRow( 15, $i, (($row->indian)? 'Yes' : 'No' ))
+					->setCellValueByColumnAndRow( 16, $i, $row->indian_info )
+					->setCellValueByColumnAndRow( 17, $i, $row->gender )
+					->setCellValueByColumnAndRow( 18, $i, $row->scientific_discipline );
 				
 				$i++;				
 			}
 
-			// close excel file
-			$workbook->close();
+			// set worksheet name
+			$workbook->getActiveSheet()->setTitle('Applicants');
+			// set filename
+			// set active sheet index to the first sheet, so Excel opens this as the first sheet
+			$workbook->setActiveSheetIndex(0);
+			// set column autodimension
+			$sheet = $workbook->getActiveSheet();
+			$cellIterator = $sheet->getRowIterator()->current()->getCellIterator();
+			$cellIterator->setIterateOnlyExistingCells( true );
+			foreach( $cellIterator as $cell ) {
+        			$sheet->getColumnDimension( $cell->getColumn() )->setAutoSize( true );
+			}
+			// Redirect output to a client web browser (Excel5)
+			header('Content-Type: application/vnd.ms-excel');
+			header('Content-Disposition: attachment;filename="applicants_'.date(Ymd).'.xls"');
+			header('Cache-Control: max-age=0');
+			$writer = PHPExcel_IOFactory::createWriter($workbook, 'Excel5');
+			$writer->save('php://output');
 			die;
 		}
 	}
