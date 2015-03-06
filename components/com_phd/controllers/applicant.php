@@ -433,14 +433,14 @@ class PhdControllerApplicant extends JController
 		$post = JRequest::get( 'post' );
 		$file = JRequest::getVar('uploaded_file', '', 'FILES', 'array');
 		$file['name']  = JFile::makeSafe($file['name']);
-                
-                $model =& $this->getModel('applicant');
+		
+		$model =& $this->getModel('applicant');
 		$model->setId($post['id']);
 		$applicant =& $model->getData();
                 
 		//$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$post['id'].DS.$file['name']);
-                $filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file['name']);
-               
+		$filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file['name']);
+
 		if (JFile::exists($filepath)) {
 			JRequest::setVar('active_tab', '2' );
 			$mainframe->enqueueMessage( JText::_('FILE_EXISTS') , 'error');

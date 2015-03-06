@@ -73,17 +73,18 @@ class PhdViewApplicants extends JView
 				->setCellValueByColumnAndRow(5, 1, JText::_( 'Age' ))
 				->setCellValueByColumnAndRow(6, 1, JText::_( 'Where did you learn about us?' ))
 				->setCellValueByColumnAndRow(7, 1, JText::_( 'Recommendation letters' ))
-				->setCellValueByColumnAndRow(8, 1, JText::_( 'Programmes of choice' ))
-				->setCellValueByColumnAndRow(9, 1, JText::_( 'Submit date' ))
-				->setCellValueByColumnAndRow(10, 1, JText::_( 'Docs checked?' ))
-				->setCellValueByColumnAndRow(11, 1, JText::_( 'Missing docs' ))
-				->setCellValueByColumnAndRow(12, 1, JText::_( 'Academic comments' ))
-				->setCellValueByColumnAndRow(13, 1, JText::_( 'Applicant contacted?' ))
-				->setCellValueByColumnAndRow(14, 1, JText::_( 'Applicant contacted date' ))
-				->setCellValueByColumnAndRow(15, 1, JText::_( 'Indian?' ))
-				->setCellValueByColumnAndRow(16, 1, JText::_( 'Indian info' ))
-				->setCellValueByColumnAndRow(17, 1, JText::_( 'Gender' ))
-				->setCellValueByColumnAndRow(18, 1, JText::_( 'Scientific discipline' ));
+				->setCellValueByColumnAndRow(8, 1, JText::_( '1st Programme of choice' ))
+				->setCellValueByColumnAndRow(9, 1, JText::_( '2nd Programme of choice' ))				
+				->setCellValueByColumnAndRow(10, 1, JText::_( 'Submit date' ))
+				->setCellValueByColumnAndRow(11, 1, JText::_( 'Docs checked?' ))
+				->setCellValueByColumnAndRow(12, 1, JText::_( 'Missing docs' ))
+				->setCellValueByColumnAndRow(13, 1, JText::_( 'Academic comments' ))
+				->setCellValueByColumnAndRow(14, 1, JText::_( 'Applicant contacted?' ))
+				->setCellValueByColumnAndRow(15, 1, JText::_( 'Applicant contacted date' ))
+				->setCellValueByColumnAndRow(16, 1, JText::_( 'Indian?' ))
+				->setCellValueByColumnAndRow(17, 1, JText::_( 'Indian info' ))
+				->setCellValueByColumnAndRow(18, 1, JText::_( 'Gender' ))
+				->setCellValueByColumnAndRow(19, 1, JText::_( 'Scientific discipline' ));
 				
 			$i = 2; // line index
 			foreach( $rows as $row )
@@ -114,19 +115,26 @@ class PhdViewApplicants extends JView
 				 * 2012-12-03. Roberto. Fin de modificación.
 				 */
 				
-				//programmes of choice
-				$query3 = "SELECT p.description"
-				. " FROM #__phd_programmes p, #__phd_applicant_programme a"
-				. " WHERE a.applicant_id = $row->id"
-				. " AND a.programme_id = p.id"
+				/*
+				 * 2015-03-06 Roberto Añado dos columnas con la primera y la segunda opción
+				 */
+				
+				// programmes of choice
+				$query3 = 'SELECT pro.description'
+				. ' FROM #__phd_programmes AS pro'
+				. ' LEFT JOIN #__phd_applicant_programme AS ap ON ap.programme_id = pro.id'
+				. ' WHERE ap.applicant_id = \'' . $row->id . '\''
+				. ' ORDER BY ap.`order` ASC'
 				;
-				$db->setQuery($query3);
+				$db->setQuery($query3);				
 				$programmes = $db->loadObjectList();
-				$str_pro = '';
+				
+				$pro = array();
+				$i = 1;
 				foreach( $programmes as $programme) {
-					$str_pro .= $programme->description . ", ";
+					$pro[$i] = $programme;
+					$i++;
 				}
-				$str_pro = substr($str_pro, 0, -2); // remove the last two caracters
 				
 				// calculate age
 				$age = $this->calculateAge($row->birth_date);
@@ -141,17 +149,18 @@ class PhdViewApplicants extends JView
 					->setCellValueByColumnAndRow( 5, $i, $age )
 					->setCellValueByColumnAndRow( 6, $i, $row->wheredidu )
 					->setCellValueByColumnAndRow( 7, $i, $str_files )
-					->setCellValueByColumnAndRow( 8, $i, $str_pro )
-					->setCellValueByColumnAndRow( 9, $i, $submit_date->toFormat('%d/%m/%Y') )
-					->setCellValueByColumnAndRow( 10, $i, (($row->docs_checked)? 'Yes' : 'No' ))
-					->setCellValueByColumnAndRow( 11, $i, $row->missing_docs )
-					->setCellValueByColumnAndRow( 12, $i, $row->academic_comments )
-					->setCellValueByColumnAndRow( 13, $i, (($row->applicant_contacted)? 'Yes' : 'No' ))
-					->setCellValueByColumnAndRow( 14, $i, $applicant_contacted_date->toFormat('%d/%m/%Y') )
-					->setCellValueByColumnAndRow( 15, $i, (($row->indian)? 'Yes' : 'No' ))
-					->setCellValueByColumnAndRow( 16, $i, $row->indian_info )
-					->setCellValueByColumnAndRow( 17, $i, $row->gender )
-					->setCellValueByColumnAndRow( 18, $i, $row->scientific_discipline );
+					->setCellValueByColumnAndRow( 8, $i, (($pro[1]->description)? $pro[1]->description : '' ))
+					->setCellValueByColumnAndRow( 9, $i, (($pro[2]->description)? $pro[2]->description : '' ))					
+					->setCellValueByColumnAndRow( 10, $i, $submit_date->toFormat('%d/%m/%Y') )
+					->setCellValueByColumnAndRow( 11, $i, (($row->docs_checked)? 'Yes' : 'No' ))
+					->setCellValueByColumnAndRow( 12, $i, $row->missing_docs )
+					->setCellValueByColumnAndRow( 13, $i, $row->academic_comments )
+					->setCellValueByColumnAndRow( 14, $i, (($row->applicant_contacted)? 'Yes' : 'No' ))
+					->setCellValueByColumnAndRow( 15, $i, $applicant_contacted_date->toFormat('%d/%m/%Y') )
+					->setCellValueByColumnAndRow( 16, $i, (($row->indian)? 'Yes' : 'No' ))
+					->setCellValueByColumnAndRow( 17, $i, $row->indian_info )
+					->setCellValueByColumnAndRow( 18, $i, $row->gender )
+					->setCellValueByColumnAndRow( 19, $i, $row->scientific_discipline );
 				
 				$i++;				
 			}
