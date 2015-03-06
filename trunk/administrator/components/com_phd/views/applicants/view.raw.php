@@ -117,8 +117,7 @@ class PhdViewApplicants extends JView
 				
 				/*
 				 * 2015-03-06 Roberto Añado dos columnas con la primera y la segunda opción
-				 */
-				
+				 */			
 				// programmes of choice
 				$query3 = 'SELECT pro.description'
 				. ' FROM #__phd_programmes AS pro'
@@ -128,12 +127,12 @@ class PhdViewApplicants extends JView
 				;
 				$db->setQuery($query3);				
 				$programmes = $db->loadObjectList();
-				
+								
 				$pro = array();
-				$i = 1;
+				$j = 1;
 				foreach( $programmes as $programme) {
-					$pro[$i] = $programme;
-					$i++;
+					$pro[$j] = $programme->description;
+					$j++;
 				}
 				
 				// calculate age
@@ -149,8 +148,8 @@ class PhdViewApplicants extends JView
 					->setCellValueByColumnAndRow( 5, $i, $age )
 					->setCellValueByColumnAndRow( 6, $i, $row->wheredidu )
 					->setCellValueByColumnAndRow( 7, $i, $str_files )
-					->setCellValueByColumnAndRow( 8, $i, (($pro[1]->description)? $pro[1]->description : '' ))
-					->setCellValueByColumnAndRow( 9, $i, (($pro[2]->description)? $pro[2]->description : '' ))					
+					->setCellValueByColumnAndRow( 8, $i, (($pro[1])? $pro[1] : '' ))
+					->setCellValueByColumnAndRow( 9, $i, (($pro[2])? $pro[2] : '' ))					
 					->setCellValueByColumnAndRow( 10, $i, $submit_date->toFormat('%d/%m/%Y') )
 					->setCellValueByColumnAndRow( 11, $i, (($row->docs_checked)? 'Yes' : 'No' ))
 					->setCellValueByColumnAndRow( 12, $i, $row->missing_docs )
