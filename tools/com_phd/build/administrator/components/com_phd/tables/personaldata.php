@@ -50,6 +50,20 @@ class TablePersonaldata extends JTable {
 	var $status_id = null;
 	var $submit_date = null;
 	var $committee_username = null;
+	// 2012-11-28 Roberto. Añadidos nuevos campos
+	var $docs_checked = null;
+	var $missing_docs = null;
+	var $academic_comments = null;
+	var $applicant_contacted = null;
+	var $applicant_contacted_date = null;
+	var $indian = null;
+	var $indian_info = null;
+	var $scientific_discipline_id = null;
+	// 2012-11-28 Roberto. Fin de cambio
+
+        // 2013-11-22 SIBEOS cambio
+        var $directory = null;
+	
 
 	/**
 	 * Constructor

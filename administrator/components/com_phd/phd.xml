@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2016-02-04</creationDate>
+	<creationDate>2016-03-10</creationDate>
 	<license>GNU/GPL</license>
-	<version>1.33</version>
-	<description>Eliminadas las referencias a Indian en los textos.</description>
+	<version>1.34</version>
+	<description>Añadida la columna Status en el excel generado en backend.</description>
 
 	<!-- installation part -->
 	<install>

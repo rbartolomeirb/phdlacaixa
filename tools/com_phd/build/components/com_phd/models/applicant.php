@@ -189,16 +189,21 @@ class PhdModelApplicant extends JModel
 		if (empty($this->_data))
 		{
 			// personal data
-			$query = 'SELECT a.*, s.description AS status, co.printable_name AS country, ge.short_description AS gender, cob.printable_name AS birth_country, w.description AS wheredidu'
+			// 2012-11-29 Añadido scientific_discipline
+			$query = 'SELECT a.*, s.description AS status, co.printable_name AS country'
+			. ', ge.short_description AS gender, cob.printable_name AS birth_country'
+			. ', w.description AS wheredidu, sd.description AS scientific_discipline'
 			. ' FROM `#__phd_applicants` AS a'
 			. ' LEFT JOIN `#__phd_status` AS s ON s.id = a.status_id'
 			. ' LEFT JOIN `#__phd_countries` AS co ON co.id = a.country_id'
 			. ' LEFT JOIN `#__phd_countries` AS cob ON cob.id = a.birth_country_id'
 			. ' LEFT JOIN `#__phd_genders` AS ge ON ge.id = a.gender_id'
 			. ' LEFT JOIN `#__phd_wheredidu` AS w ON w.id = a.wheredidu_id'
+			. ' LEFT JOIN `#__phd_scientific_discipline` AS sd ON sd.id = a.scientific_discipline_id'
 			. ' WHERE a.id = ' . $this->_id
 			;
 			$this->_db->setQuery($query);
+			//echo $this->_db->getQuery();
 			$this->_data = $this->_db->loadObject();
 
 			// academic data for academic, doctoral and postdoctoral
@@ -324,7 +329,20 @@ class PhdModelApplicant extends JModel
 			$applicant->referees = array();
 			$applicant->files = array();
 			$applicant->selections = array();
+			// 2012-11-28 Roberto. Añadidos nuevos campos
+			$applicant->docs_checked = null;
+			$applicant->missing_docs = null;
+			$applicant->academic_comments = null;
+			$applicant->applicant_contacted = null;
+			$applicant->applicant_contacted_date = null;
+			$applicant->indian = null;
+			$applicant->indian_info = null;
+			$applicant->scientific_discipline_id = null;
+			// 2012-11-28 Roberto. Fin de cambio
 
+                        // 2013-11-22 SIBEOS cambio
+                        $applicant->directory = null;
+					
 			$this->_data = $applicant;
 
 			return (boolean) $this->_data;
@@ -341,6 +359,7 @@ class PhdModelApplicant extends JModel
 	 * @since	1.5
 	 */
 	function savePersonalData($data){
+		//print_r($data);
 		$applicant_id = $this->_store($data, 'personaldata');
 		if ($applicant_id){
 			return $applicant_id;
@@ -540,15 +559,22 @@ class PhdModelApplicant extends JModel
 		global $mainframe;
 
 		$params =& $mainframe->getParams();
-		$phdConfig_DocsPath = $params->get('phdConfig_DocsPath');
-
+		$phdConfig_DocsPath = $params->get('phdConfig_DocsPath');              
+                
 		$query = 'SELECT * FROM #__phd_docs'
 		. ' WHERE id = ' . $id
 		;
 		$this->_db->setQuery( $query );
 		$file_details = $this->_db->loadObject();
 
-		$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$file_details->applicant_id.DS.$file_details->filename);
+                $model =& JModel::getInstance( 'applicant', 'phdmodel' );
+                $model->setId( $file_details->applicant_id );
+                $applicant =& $model->getData();                 
+                
+		$filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file_details->filename);
+                
+                echo $filepath; 
+                
 		if (!JFile::delete($filepath)) {
 			//echo JText::_('ERROR_DELETING_FILE');
 			return false;
@@ -573,11 +599,15 @@ class PhdModelApplicant extends JModel
 	 * @return	boolean	True on success
 	 * @since	1.5
 	 */
-	function deleteReferee($id_referee){
+	function deleteReferee($id_referee,$applicant_id){
 		global $mainframe;
 
 		$params =& $mainframe->getParams();
 		$phdConfig_DocsPath = $params->get('phdConfig_DocsPath');
+
+		$model =& JModel::getInstance( 'applicant', 'phdmodel' );
+		$model->setId($applicant_id);
+		$applicant =& $model->getData();           
 
 		$query = "SELECT * FROM #__phd_referees WHERE id='$id_referee'";
 		$this->_db->setQuery($query);
@@ -588,7 +618,7 @@ class PhdModelApplicant extends JModel
 		$file_details = $this->_db->loadObject();
 
 		if (isset($file_details->filename)){
-			$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$file_details->applicant_id.DS.$file_details->filename);
+			$filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file_details->filename);
 
 			if (!JFile::delete($filepath)) {
 				//echo JText::_('ERROR_DELETING_FILE');

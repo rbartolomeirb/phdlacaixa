@@ -11,13 +11,13 @@
 			label="Live site URL" description="Live site URL" size="60" />
 		<param name="phdConfig_ClosingDateTime" type="text" default=""
 			label="Closing date time" description="Closing date time" size="40" />
-		<param name="phdConfig_LimitAge" type="text" default="30" label="Limit age"
+		<param name="phdConfig_LimitAge" type="text" default="" label="Limit age"
 			description="Limit age" size="2" />
-		<param name="phdConfig_DocsPath" type="text" default="/docs_phd/"
+		<param name="phdConfig_DocsPath" type="text" default=""
 			label="Documents path" description="Documents path" />
-		<param name="phdConfig_MaxNumberOfFiles" type="text" default="5"
+		<param name="phdConfig_MaxNumberOfFiles" type="text" default=""
 			label="Max number of files" description="Max number of files" size="2" />
-		<param name="phdConfig_SendBCC" type="radio" default="1"
+		<param name="phdConfig_SendBCC" type="radio" default=""
 			label="Send copy to the administrator"
 			description="Send a copy in BCC to the administrator for the emails sent to the referees">
 			<option value="1">Yes</option>
@@ -25,12 +25,12 @@
 		</param>
 		<param name="@spacer" type="spacer" default="" label=""
 			description="" />
-		<param name="phdConfig_Application" type="radio" default="1"
+		<param name="phdConfig_Application" type="radio" default=""
 			label="Application" description="Application">
 			<option value="1">PhD</option>
 			<option value="2">PostDocs</option>
 		</param>
-		<param name="phdConfig_FirstChoice" type="radio" default="1"
+		<param name="phdConfig_FirstChoice" type="radio" default=""
 			label="To show the applicants take into account..." description="First choice">
 			<option value="1">only the first choice</option>
 			<option value="2">all the choices</option>

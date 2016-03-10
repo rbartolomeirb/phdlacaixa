@@ -31,10 +31,15 @@ class PhdModelApplicants extends JModel
 	 */
 	function getExcelData()
 	{
-		$query = "SELECT a.id, a.firstname, a.lastname, c.printable_name, a.email, a.birth_date, a.submit_date, w.description AS wheredidu"
+		$query = "SELECT a.id, a.firstname, a.lastname, c.printable_name, a.email, a.birth_date"
+		. ", a.submit_date, w.description AS wheredidu, sd.description AS scientific_discipline"
+		. ", a.docs_checked, a.missing_docs, a.academic_comments, a.applicant_contacted, a.applicant_contacted_date"
+		. ", a.indian, a.indian_info, ge.description AS gender"	
 		. " FROM #__phd_applicants AS a"
 		. " LEFT JOIN #__phd_countries AS c ON c.id = a.country_id"
 		. " LEFT JOIN #__phd_wheredidu AS w ON w.id = a.wheredidu_id"
+		. " LEFT JOIN #__phd_scientific_discipline AS sd ON sd.id = a.scientific_discipline_id"
+		. " LEFT JOIN #__phd_genders AS ge ON ge.id = a.gender_id"
 		. " WHERE a.status_id >= 2"
 		;
 		$data = $this->_getList($query);
